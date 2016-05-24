@@ -1,0 +1,49 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>{% block title %} SAIS {% endblock%}</title>
+        <!-- link stylesheets here-->
+        <link rel="stylesheet" type="text/css" href="{% static 'sais/css/normalize.css' %}/">
+        <link rel="stylesheet" type="text/css" href="{% static 'sais/css/skeleton.css' %}/">
+        <link rel="stylesheet" type="text/css" href="{% static 'sais/css/app.css' %}/">
+        {% block stylesheets %}
+        {% endblock %}
+        <ul>
+            <li><img src="{% static 'sais/images/up-logo-small.png' %}"/></li>
+        <li><a style="font-size:20px"> UP Student Academic Information System</a></li>
+        <li style="float:right"><a>Logout</a></li>
+        <li style="float:right"><a>Hi, <!--{{student.last_name}}--></a></li>
+        </ul>
+
+    </head>
+    <body>
+        <!-- news here -->
+        {% if pre_enrollment %}
+        <div class="row" align="center">
+            <div class="one-whole column">
+                <h2>Pre-enrollment going on</h2>
+                <p>Pre-nrollment period is from 24 July to 29 2016, July UP Cebu</p>
+                <a class="button button-primary">Pre Enlist subjects now</a>
+            </div>
+        </div>
+        {% endif %}
+
+        {% if enrollment %}
+        <div class="row" align="center">
+            <div class="one-whole column">
+                <h2>Enrollment going on</h2>
+                <p>Enrollment period is from 24 July to 29 2016, July UP Cebu</p>
+                <a class="button button-primary">Enroll now</a>
+            </div>
+        </div>
+        {% endif %}
+
+        {% block body %} {% endblock %}
+
+        <!-- scripts here-->
+        {% block javascripts %}
+        {% endblock %}
+    </body>
+</html>
