@@ -63,3 +63,7 @@ target/
 
 #Sqlite
 *.sqlite3
+
+#Migrations
+student/migrations/
+sais/migrations/
