@@ -6,16 +6,26 @@
             <div class="row">
                 <div class="one-whole column panel">
                     <h1> Student Profile </h1>
-                    <div>Name: <!--{{student.full_name}}--> </div>
-                    <div>Course: <!--{{student.course}}--> </div>
-                    <div>Year: <!--{{student.course}}--> </div>
-                    <div>Campus: <!--{{student.admitted_campus}}--></div>
-                    <div>UP Mail: <!--{{student.up_mail}}--></div>
-                    <div>Address: <!--{{student.address}}--></div>
-                    <div>Birthday: <!--{{student.course}}--> </div>
-                    <div>Gender: <!--{{student.birthday}}--></div>
+                    <div>Name: {{student.name}} </div>
+                    <div>Student No: {{student}} </div>
+                    <div>Program: {{student.program}} </div>
+                    <div>Year: {{student.year}} </div>
+                    <div>Campus: {{student.admitted_campus}}</div>
+                    <div>STS Bracket: {{student.sts_bracket}}</div>
+                    <div> Scholarships: </div>
+                    {% if student.scholarships %}
+                    {% for scholarship in student.scholarships %}
+                    <div>{{scholarship.scholarship.name}}</div>
+                    {% endfor %}
+                    {% else %}
+                    <span> None</span> <br>
+                    {% endif %}
+                    <div>UP Mail: {{student.up_mail}}</div>
+                    <div>Address: {{student.address}}</div>
+                    <div>Birthday: {{student.birthday}} </div>
+                    <div>Gender: {{student.gender}}</div>
 
-                    <a class="button button-primary" align="center" href="{% url 'student:edit-profile' student.pk %}"></a>
+                    <a class="button button-primary" align="center" href="">Edit Profile</a>
                 </div>
             </div>
         </div>

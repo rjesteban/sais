@@ -1,0 +1,30 @@
+{% extends 'student/base.html' %}
+<html>
+
+<head>
+    <title>SAIS|Login</title>
+</head>
+
+{% block body %}
+    <div>
+        {%if not user.is_authenticated %}
+        <div id="container">
+            {% if form.non_field_errors %}
+                    <div><span class="error label">{{ form.non_field_errors | striptags }}</span></div>
+            {% endif %}
+            <h3 align="center">Login</h3>
+            <form method="post" align="center">
+                {% csrf_token %}
+                <label class="title"><b>Username</b></label>
+                <input type="text" name="username" placeholder="Enter your username" required autocomplete="on" />
+                <label class="title"><b>Password</b></label>
+                <input type="password" name="password" placeholder="Enter your password" required />
+                <br>
+                <input type="submit" class="button expand" value="Sign In" />
+            </form>
+        </div>
+        {% endif %}
+    </div>
+{% endblock %}
+
+</html>

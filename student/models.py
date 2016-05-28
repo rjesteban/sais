@@ -27,6 +27,7 @@ class Student(models.Model):
     middle_name = models.CharField(max_length=100, blank=False)
     admitted_campus = models.ForeignKey(Campus, blank=False)
     up_mail = models.EmailField(blank=False)
+    program = models.ForeignKey(Program)
     sts_bracket = models.ForeignKey(STSBracket, blank=False)
     address = models.CharField(max_length=200)
     birthday = models.DateField(blank=False)
@@ -36,13 +37,24 @@ class Student(models.Model):
         return str(self.student_id)[0:4] + '-' + str(self.student_id)[4:]
         # return self.scholarships()
 
-    # @property
-    # def scholarships(self):
-    #    scholarships = self.scholarships_set.objects.all()
-    #    list = ''
-    #    for scholarship in scholarships:
-    #        list += ', ' + str(scholarship)
-    #   return list
+    @property
+    def name(self):
+        name = self.first_name + ' ' + self.middle_name + ' ' + self.last_name
+        return name
+
+    @property
+    def year(self):
+        student_year = int(str(self.student_id)[0:4])
+        today = datetime.datetime.now()
+        difference = today.year - student_year
+        if today.month > 7:
+            difference += 1
+        return difference
+
+    @property
+    def scholarships(self):
+        scholarships = self.studentscholarship_set.all()
+        return scholarships
 
 
 class Transaction(models.Model):
@@ -73,14 +85,15 @@ class EnlistedCourse(models.Model):
         (6.00, 'INC',),
         (7.00, 'No Grade',),
         )
-    course = models.ForeignKey(Course)
+    course = models.ForeignKey(CourseOffered)
     student = models.ForeignKey(Student)
     is_enrolled = models.BooleanField(default=False, blank=False)
     grade = models.FloatField(choices=GRADE_CHOICES, default=7.00)
 
     def __str__(self):
-        return self.course.code_name + ' ' + str(self.course.course_no) +\
-               ' ' + str(self.student)
+        return str(self.student) + ' ' +\
+               str(self.course.course) + ' ' +\
+               str(self.course.block)
 
 
 class StudentScholarship(models.Model):

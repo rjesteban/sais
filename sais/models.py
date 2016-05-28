@@ -12,7 +12,7 @@ from django.utils import timezone
 
 class Campus(models.Model):
     name = models.CharField(max_length=100, blank=False)
-    acronym = models.CharField(max_length=10, blank=False)
+    acronym = models.CharField(max_length=10, blank=False, unique=True)
     address = models.CharField(max_length=100, blank=False)
 
     def __str__(self):
@@ -22,7 +22,7 @@ class Campus(models.Model):
 class Program(models.Model):
     degree = models.CharField(max_length=50, blank=False)
     name = models.CharField(max_length=50, blank=False)
-    campus = models.ForeignKey(Campus)
+    campus = models.ForeignKey(Campus, blank=False)
 
     def __str__(self):
         return self.degree + ' ' + self.name + ' ' + self.campus.acronym
@@ -32,6 +32,7 @@ class Professor(models.Model):
     last_name = models.CharField(max_length=100, blank=False)
     first_name = models.CharField(max_length=100, blank=False)
     middle_name = models.CharField(max_length=100, blank=False)
+    campus = models.ForeignKey(Campus)
     login_profile = models.OneToOneField(User)
 
     def __str__(self):
@@ -41,7 +42,7 @@ class Professor(models.Model):
 class STSBracket(models.Model):
     name = models.CharField(max_length=100, unique=True, blank=False)
     bracket = models.CharField(unique=True, blank=False, max_length=3)
-    tuition_subsidy = models.FloatField(unique=True, blank=False)
+    tuition_subsidy = models.FloatField(blank=False)
 
     def __str__(self):
         return self.bracket
@@ -50,32 +51,12 @@ class STSBracket(models.Model):
 class Course(models.Model):
     name = models.CharField(max_length=100, unique=True)
     code_name = models.CharField(max_length=30, blank=False, null=False)
-    units = models.FloatField(blank=False, default=0.0)
     course_no = models.IntegerField(blank=False, null=False)
-    block = models.CharField(blank=False, max_length=10)
-    professor = models.ForeignKey(Professor, blank=False, null=False)
+    units = models.FloatField(blank=False, default=0.0)
     prerequisite = models.ForeignKey('self', blank=True, null=True)
-    start_hour_time = models.IntegerField(blank=False)
-    start_min_time = models.IntegerField(blank=False)
-    end_hour_time = models.IntegerField(blank=False)
-    end_min_time = models.IntegerField(blank=False)
-    program = models.ForeignKey(Program, on_delete=models.CASCADE)
-    location = models.CharField(max_length=100, blank=False)
-    price = models.IntegerField(blank=False)
 
     def __str__(self):
-        return self.code_name + ' ' + str(self.course_no) + ': '\
-               + self.program.campus.acronym
-
-
-class Curriculum(models.Model):
-    program = models.OneToOneField(Program, blank=False)
-    date_instituted = models.DateTimeField(blank=False)
-    courses = models.ManyToManyField(Course)
-
-    def __str__(self):
-        return self.program.name + ': ' + str(self.date_instituted.year) +\
-               ' ' + self.program.campus.acronym
+        return self.code_name + ' ' + str(self.course_no)
 
 
 class AcademicYear(models.Model):
@@ -87,3 +68,21 @@ class AcademicYear(models.Model):
         return str(self.semester) + ' sem ' +\
                    str(self.start_year) + '-' + \
                    str(self.end_year)
+
+
+class CourseOffered(models.Model):
+    course = models.ForeignKey(Course)
+    block = models.CharField(blank=False, max_length=10)
+    academic_year = models.ForeignKey(AcademicYear)
+    professor = models.ForeignKey(Professor)
+    start_hour_time = models.IntegerField(blank=False)
+    start_min_time = models.IntegerField(blank=False)
+    end_hour_time = models.IntegerField(blank=False)
+    end_min_time = models.IntegerField(blank=False)
+    location = models.CharField(max_length=100, blank=False)
+    campus = models.ForeignKey(Campus)
+    price = models.IntegerField(blank=False)
+    slots = models.IntegerField(blank=False, default=30)
+
+    def __str__(self):
+        return str(self.course) + ' ' + self.block + ' ' + self.campus.acronym

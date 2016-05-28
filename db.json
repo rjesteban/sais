@@ -1,0 +1,1061 @@
+[
+{
+  "model": "contenttypes.contenttype",
+  "pk": 1,
+  "fields": {
+    "app_label": "admin",
+    "model": "logentry"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 2,
+  "fields": {
+    "app_label": "auth",
+    "model": "permission"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 3,
+  "fields": {
+    "app_label": "auth",
+    "model": "group"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 4,
+  "fields": {
+    "app_label": "auth",
+    "model": "user"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 5,
+  "fields": {
+    "app_label": "contenttypes",
+    "model": "contenttype"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 6,
+  "fields": {
+    "app_label": "sessions",
+    "model": "session"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 7,
+  "fields": {
+    "app_label": "sais",
+    "model": "campus"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 8,
+  "fields": {
+    "app_label": "sais",
+    "model": "program"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 9,
+  "fields": {
+    "app_label": "sais",
+    "model": "professor"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 10,
+  "fields": {
+    "app_label": "sais",
+    "model": "stsbracket"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 11,
+  "fields": {
+    "app_label": "sais",
+    "model": "course"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 12,
+  "fields": {
+    "app_label": "sais",
+    "model": "academicyear"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 13,
+  "fields": {
+    "app_label": "sais",
+    "model": "courseoffered"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 14,
+  "fields": {
+    "app_label": "student",
+    "model": "scholarship"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 15,
+  "fields": {
+    "app_label": "student",
+    "model": "student"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 16,
+  "fields": {
+    "app_label": "student",
+    "model": "transaction"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 17,
+  "fields": {
+    "app_label": "student",
+    "model": "enlistedcourse"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 18,
+  "fields": {
+    "app_label": "student",
+    "model": "studentscholarship"
+  }
+},
+{
+  "model": "sais.campus",
+  "pk": 1,
+  "fields": {
+    "name": "University of the Philippines Cebu",
+    "acronym": "UPC",
+    "address": "Gorordo Ave., Lahug, Cebu City"
+  }
+},
+{
+  "model": "sais.campus",
+  "pk": 2,
+  "fields": {
+    "name": "University of the Philippines Diliman",
+    "acronym": "UPD",
+    "address": "Diliman, Quezon City, NCR, Philippines"
+  }
+},
+{
+  "model": "sais.program",
+  "pk": 1,
+  "fields": {
+    "degree": "BS",
+    "name": "Computer Science",
+    "campus": 1
+  }
+},
+{
+  "model": "sais.stsbracket",
+  "pk": 1,
+  "fields": {
+    "name": "Full Discount Plus Stipend",
+    "bracket": "FDS",
+    "tuition_subsidy": 1.0
+  }
+},
+{
+  "model": "sais.course",
+  "pk": 1,
+  "fields": {
+    "name": "Introduction to Computer Science",
+    "code_name": "CMSC",
+    "course_no": 11,
+    "units": 3.0,
+    "prerequisite": null
+  }
+},
+{
+  "model": "sais.course",
+  "pk": 2,
+  "fields": {
+    "name": "Fundamentals of Programming",
+    "code_name": "CMSC",
+    "course_no": 21,
+    "units": 3.0,
+    "prerequisite": 1
+  }
+},
+{
+  "model": "sais.academicyear",
+  "pk": 1,
+  "fields": {
+    "semester": 1,
+    "start_year": 2015,
+    "end_year": 2016
+  }
+},
+{
+  "model": "sais.courseoffered",
+  "pk": 1,
+  "fields": {
+    "course": 1,
+    "block": "A - Lec",
+    "academic_year": 1,
+    "professor": 1,
+    "start_hour_time": 9,
+    "start_min_time": 0,
+    "end_hour_time": 10,
+    "end_min_time": 0,
+    "location": "AS 244",
+    "campus": 1,
+    "price": 1000,
+    "slots": 30
+  }
+},
+{
+  "model": "student.scholarship",
+  "pk": 1,
+  "fields": {
+    "name": "DOST RA7687",
+    "tuition_subsidy": 10000
+  }
+},
+{
+  "model": "student.enlistedcourse",
+  "pk": 1,
+  "fields": {
+    "course": 1,
+    "student": 1,
+    "is_enrolled": true,
+    "grade": 7.0
+  }
+},
+{
+  "model": "student.studentscholarship",
+  "pk": 1,
+  "fields": {
+    "student": 1,
+    "scholarship": 1,
+    "is_active": true
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 1,
+  "fields": {
+    "name": "Can add log entry",
+    "content_type": 1,
+    "codename": "add_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 2,
+  "fields": {
+    "name": "Can change log entry",
+    "content_type": 1,
+    "codename": "change_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 3,
+  "fields": {
+    "name": "Can delete log entry",
+    "content_type": 1,
+    "codename": "delete_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 4,
+  "fields": {
+    "name": "Can add permission",
+    "content_type": 2,
+    "codename": "add_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 5,
+  "fields": {
+    "name": "Can change permission",
+    "content_type": 2,
+    "codename": "change_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 6,
+  "fields": {
+    "name": "Can delete permission",
+    "content_type": 2,
+    "codename": "delete_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 7,
+  "fields": {
+    "name": "Can add group",
+    "content_type": 3,
+    "codename": "add_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 8,
+  "fields": {
+    "name": "Can change group",
+    "content_type": 3,
+    "codename": "change_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 9,
+  "fields": {
+    "name": "Can delete group",
+    "content_type": 3,
+    "codename": "delete_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 10,
+  "fields": {
+    "name": "Can add user",
+    "content_type": 4,
+    "codename": "add_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 11,
+  "fields": {
+    "name": "Can change user",
+    "content_type": 4,
+    "codename": "change_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 12,
+  "fields": {
+    "name": "Can delete user",
+    "content_type": 4,
+    "codename": "delete_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 13,
+  "fields": {
+    "name": "Can add content type",
+    "content_type": 5,
+    "codename": "add_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 14,
+  "fields": {
+    "name": "Can change content type",
+    "content_type": 5,
+    "codename": "change_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 15,
+  "fields": {
+    "name": "Can delete content type",
+    "content_type": 5,
+    "codename": "delete_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 16,
+  "fields": {
+    "name": "Can add session",
+    "content_type": 6,
+    "codename": "add_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 17,
+  "fields": {
+    "name": "Can change session",
+    "content_type": 6,
+    "codename": "change_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 18,
+  "fields": {
+    "name": "Can delete session",
+    "content_type": 6,
+    "codename": "delete_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 19,
+  "fields": {
+    "name": "Can add campus",
+    "content_type": 7,
+    "codename": "add_campus"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 20,
+  "fields": {
+    "name": "Can change campus",
+    "content_type": 7,
+    "codename": "change_campus"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 21,
+  "fields": {
+    "name": "Can delete campus",
+    "content_type": 7,
+    "codename": "delete_campus"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 22,
+  "fields": {
+    "name": "Can add program",
+    "content_type": 8,
+    "codename": "add_program"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 23,
+  "fields": {
+    "name": "Can change program",
+    "content_type": 8,
+    "codename": "change_program"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 24,
+  "fields": {
+    "name": "Can delete program",
+    "content_type": 8,
+    "codename": "delete_program"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 25,
+  "fields": {
+    "name": "Can add professor",
+    "content_type": 9,
+    "codename": "add_professor"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 26,
+  "fields": {
+    "name": "Can change professor",
+    "content_type": 9,
+    "codename": "change_professor"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 27,
+  "fields": {
+    "name": "Can delete professor",
+    "content_type": 9,
+    "codename": "delete_professor"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 28,
+  "fields": {
+    "name": "Can add sts bracket",
+    "content_type": 10,
+    "codename": "add_stsbracket"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 29,
+  "fields": {
+    "name": "Can change sts bracket",
+    "content_type": 10,
+    "codename": "change_stsbracket"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 30,
+  "fields": {
+    "name": "Can delete sts bracket",
+    "content_type": 10,
+    "codename": "delete_stsbracket"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 31,
+  "fields": {
+    "name": "Can add course",
+    "content_type": 11,
+    "codename": "add_course"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 32,
+  "fields": {
+    "name": "Can change course",
+    "content_type": 11,
+    "codename": "change_course"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 33,
+  "fields": {
+    "name": "Can delete course",
+    "content_type": 11,
+    "codename": "delete_course"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 34,
+  "fields": {
+    "name": "Can add academic year",
+    "content_type": 12,
+    "codename": "add_academicyear"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 35,
+  "fields": {
+    "name": "Can change academic year",
+    "content_type": 12,
+    "codename": "change_academicyear"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 36,
+  "fields": {
+    "name": "Can delete academic year",
+    "content_type": 12,
+    "codename": "delete_academicyear"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 37,
+  "fields": {
+    "name": "Can add course offered",
+    "content_type": 13,
+    "codename": "add_courseoffered"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 38,
+  "fields": {
+    "name": "Can change course offered",
+    "content_type": 13,
+    "codename": "change_courseoffered"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 39,
+  "fields": {
+    "name": "Can delete course offered",
+    "content_type": 13,
+    "codename": "delete_courseoffered"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 40,
+  "fields": {
+    "name": "Can add scholarship",
+    "content_type": 14,
+    "codename": "add_scholarship"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 41,
+  "fields": {
+    "name": "Can change scholarship",
+    "content_type": 14,
+    "codename": "change_scholarship"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 42,
+  "fields": {
+    "name": "Can delete scholarship",
+    "content_type": 14,
+    "codename": "delete_scholarship"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 43,
+  "fields": {
+    "name": "Can add student",
+    "content_type": 15,
+    "codename": "add_student"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 44,
+  "fields": {
+    "name": "Can change student",
+    "content_type": 15,
+    "codename": "change_student"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 45,
+  "fields": {
+    "name": "Can delete student",
+    "content_type": 15,
+    "codename": "delete_student"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 46,
+  "fields": {
+    "name": "Can add transaction",
+    "content_type": 16,
+    "codename": "add_transaction"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 47,
+  "fields": {
+    "name": "Can change transaction",
+    "content_type": 16,
+    "codename": "change_transaction"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 48,
+  "fields": {
+    "name": "Can delete transaction",
+    "content_type": 16,
+    "codename": "delete_transaction"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 49,
+  "fields": {
+    "name": "Can add enlisted course",
+    "content_type": 17,
+    "codename": "add_enlistedcourse"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 50,
+  "fields": {
+    "name": "Can change enlisted course",
+    "content_type": 17,
+    "codename": "change_enlistedcourse"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 51,
+  "fields": {
+    "name": "Can delete enlisted course",
+    "content_type": 17,
+    "codename": "delete_enlistedcourse"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 52,
+  "fields": {
+    "name": "Can add student scholarship",
+    "content_type": 18,
+    "codename": "add_studentscholarship"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 53,
+  "fields": {
+    "name": "Can change student scholarship",
+    "content_type": 18,
+    "codename": "change_studentscholarship"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 54,
+  "fields": {
+    "name": "Can delete student scholarship",
+    "content_type": 18,
+    "codename": "delete_studentscholarship"
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$24000$g1UmnoiMN6eI$fo1ixd/F95jBwETDCQvUtHGCHuabjMAb6jX8DZuONGo=",
+    "last_login": "2016-05-28T17:42:21.248Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "admin@example.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2016-05-28T16:51:10.137Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$24000$ADhbFAFDsrtc$C0xSWjub1cSn7z0l13jdS/yGvLzIcsuc6lVrDCnfgXU=",
+    "last_login": "2016-05-28T17:41:55.002Z",
+    "is_superuser": false,
+    "username": "APESTEBAN",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2016-05-28T16:51:49.584Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$24000$QlQULPVRFKOg$VLKAZpZTNzQFOc5GZ6y4uGZd3Rl9ibtxcBi3oR5m7Zg=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "RMDULACA",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2016-05-28T16:54:43.814Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "sais.professor",
+  "pk": 1,
+  "fields": {
+    "last_name": "Dulaca",
+    "first_name": "Ryan Ciriaco",
+    "middle_name": "Madolin",
+    "campus": 1,
+    "login_profile": 3
+  }
+},
+{
+  "model": "student.student",
+  "pk": 1,
+  "fields": {
+    "student_id": 201350109,
+    "login_profile": 2,
+    "last_name": "Esteban",
+    "first_name": "Arnold Joseph Caesar",
+    "middle_name": "Palmaras",
+    "admitted_campus": 1,
+    "up_mail": "apesteban1@up.edu.ph",
+    "program": 1,
+    "sts_bracket": 1,
+    "address": "263 V. Rama Ave., Brgy Calamba, Cebu City, 6000",
+    "birthday": "1996-03-29",
+    "gender": "Male"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2016-05-28T16:51:49.670Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "2",
+    "object_repr": "APESTEBAN",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2016-05-28T16:52:06.576Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "University of the Philippines Cebu",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2016-05-28T16:52:17.606Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "2",
+    "object_repr": "University of the Philippines Diliman",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2016-05-28T16:52:28.617Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "1",
+    "object_repr": "BS Computer Science UPC",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2016-05-28T16:52:37.184Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "1",
+    "object_repr": "FDS",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2016-05-28T16:52:53.727Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "1",
+    "object_repr": "2013-50109",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2016-05-28T16:53:08.127Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "1",
+    "object_repr": "DOST RA7687",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2016-05-28T16:53:10.115Z",
+    "user": 1,
+    "content_type": 18,
+    "object_id": "1",
+    "object_repr": "2013-50109: DOST RA7687",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2016-05-28T16:54:21.083Z",
+    "user": 1,
+    "content_type": 11,
+    "object_id": "1",
+    "object_repr": "CMSC 11",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2016-05-28T16:54:43.865Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "3",
+    "object_repr": "RMDULACA",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2016-05-28T16:54:45.976Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "1",
+    "object_repr": "Dulaca, Ryan Ciriaco",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2016-05-28T16:55:08.136Z",
+    "user": 1,
+    "content_type": 11,
+    "object_id": "1",
+    "object_repr": "CMSC 11",
+    "action_flag": 2,
+    "change_message": "No fields changed."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2016-05-28T16:56:58.534Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "1",
+    "object_repr": "1 sem 2015-2016",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 14,
+  "fields": {
+    "action_time": "2016-05-28T16:57:30.813Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "1",
+    "object_repr": "CMSC 11 A - Lec UPC",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 15,
+  "fields": {
+    "action_time": "2016-05-28T17:02:24.078Z",
+    "user": 1,
+    "content_type": 17,
+    "object_id": "1",
+    "object_repr": "2013-50109 CMSC 11 A - Lec",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 16,
+  "fields": {
+    "action_time": "2016-05-28T17:36:43.467Z",
+    "user": 1,
+    "content_type": 11,
+    "object_id": "1",
+    "object_repr": "CMSC 11",
+    "action_flag": 2,
+    "change_message": "No fields changed."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 17,
+  "fields": {
+    "action_time": "2016-05-28T17:37:13.817Z",
+    "user": 1,
+    "content_type": 11,
+    "object_id": "2",
+    "object_repr": "CMSC 21",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 18,
+  "fields": {
+    "action_time": "2016-05-28T17:42:35.210Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "1",
+    "object_repr": "2013-50109",
+    "action_flag": 2,
+    "change_message": "Changed admitted_campus."
+  }
+}
+]

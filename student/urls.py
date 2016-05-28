@@ -11,7 +11,10 @@ urlpatterns = [
     # /$', views.results, name='results'),
     # url(r'^vote/(?P<question_id>[0-9]+)/$', views.vote, name='vote'),
     # url(r'^(?P<pk>[0-9]+)/$', views.DetailView.as_view(), name='detail'),
-    url(r'^$', views.IndexView.as_view(), name='index'),
+    url(r'^$', views.IndexView.as_view(), name='menu'),
+    url(r'^view-profile$', views.ProfileView.as_view(), name='profile'),
+    url(r'^login$', views.StudentLoginView.as_view(), name='login'),
+    url(r'^logout$', views.StudentLogoutView.as_view(), name='logout'),
     # url(r'^(?P<pk>[0-9]+)/edit-profile$', views.EditProfileView.as_view(),
     #     name='edit-profile'),
     # url(r^/enroll/^$, views.EnrollClassView.as_view(),name='enlist')
