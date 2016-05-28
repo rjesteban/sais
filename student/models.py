@@ -46,21 +46,37 @@ class Student(models.Model):
 
 
 class Transaction(models.Model):
+    TRANSACTION_STATUS = ((1, 'Unpaid'), (2, 'Promised'), (3, 'Paid'))
     academic_calendar = models.OneToOneField(AcademicYear)
     student = models.ForeignKey(Student)
     total = models.FloatField(null=False)
-    paid = models.BooleanField(blank=False, default=False)
     date = models.DateTimeField(auto_now_add=True)
+    status = models.IntegerField(choices=TRANSACTION_STATUS, default=1)
 
     def __str__(self):
         return str(self.pk) + ': ' + str(self.student)
 
 
 class EnlistedCourse(models.Model):
+    GRADE_CHOICES = (
+        (1.00, '1.00',),
+        (1.25, '1.25',),
+        (1.50, '1.50',),
+        (1.75, '1.75',),
+        (2.00, '2.00',),
+        (2.25, '2.25',),
+        (2.50, '2.50',),
+        (2.75, '2.75',),
+        (3.00, '3.00',),
+        (4.00, '4.00',),
+        (5.00, '5.00',),
+        (6.00, 'INC',),
+        (7.00, 'No Grade',),
+        )
     course = models.ForeignKey(Course)
     student = models.ForeignKey(Student)
     is_enrolled = models.BooleanField(default=False, blank=False)
-    grade = models.FloatField(blank=False, default=0.0)
+    grade = models.FloatField(choices=GRADE_CHOICES, default=7.00)
 
     def __str__(self):
         return self.course.code_name + ' ' + str(self.course.course_no) +\

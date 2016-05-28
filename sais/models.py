@@ -50,6 +50,7 @@ class STSBracket(models.Model):
 class Course(models.Model):
     name = models.CharField(max_length=100, unique=True)
     code_name = models.CharField(max_length=30, blank=False, null=False)
+    units = models.FloatField(blank=False, default=0.0)
     course_no = models.IntegerField(blank=False, null=False)
     block = models.CharField(blank=False, max_length=10)
     professor = models.ForeignKey(Professor, blank=False, null=False)
