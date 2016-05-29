@@ -2,34 +2,17 @@
 {% load staticfiles %}
 
 {% block body %}
+
 <table align="center">
-    <thead style="background-color:#888888">
-        <td>Sem</td>
-        <td>AY</td>
-        <td>Subject</td>
-        <td>Course Desc</td>
-        <td>Units</td>
-        <td>Grade</td>
-    </thead>
-    <tbody>
-    {% for grade in grades %}
+    <tr style="background-color:#888888">
+        <td>Term</td>
+        <td>GWA</td>
+    </tr>
+    {% for term in student.terms.all %}
     <tr>
-        <td>{{ grade.course.academic_year.get_semester_display }}</td>
-        <td>{{ grade.course.academic_year.start_year }}-{{ grade.course.academic_year.end_year }}</td>
-        <td>{{ grade.course.course.code_name }} {{ grade.course.course.course_no}}</td>
-        <td>{{ grade.course.course.name }}</td>
-        <td>{{ grade.course.course.units }}</td>
-        <td>{{ grade.get_grade_display }}</td>
+        <td><a href="{% url 'student:term' term.pk %}">{{ term.term }}</a></td>
+        <td>{{ term.gwa }}</td>
     </tr>
     {% endfor %}
-    <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td>GWA</td>
-        <td> {{ student.gwa }} </td>
-    </tr>
-    </tbody>
 </table>
 {% endblock %}

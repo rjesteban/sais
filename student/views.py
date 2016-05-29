@@ -3,7 +3,7 @@ from django.http import Http404, HttpResponse, HttpResponseRedirect
 # from django.core.urlresolvers import reverse
 # from django.template import loader
 from django.views.generic import DetailView, ListView
-from .models import Student
+from .models import Student, Term, EnrolledCourse
 from sais.models import CourseOffered
 from sais.forms import LoginForm
 from sais.views import LoginView, LogoutView
@@ -74,3 +74,17 @@ class ListCoursesView(LoginRequiredMixin, ListView):
 
 #    def get_all_courses(self):
 #        return CourseOffered
+
+
+class GradesTermView(LoginRequiredMixin, DetailView):
+    template_name = 'student/term-grade.html'
+    model = Term
+    context_object_name = 'term'
+
+    def get_context_data(self, **kwargs):
+        context = super(GradesTermView, self).get_context_data(**kwargs)
+        context['student'] = self.request.user.student
+        context['courses'] = EnrolledCourse.objects.filter(
+            student__pk=context['student'].pk,
+            course__academic_year=context['term'].term)
+        return context

@@ -160,6 +160,14 @@
   }
 },
 {
+  "model": "contenttypes.contenttype",
+  "pk": 21,
+  "fields": {
+    "app_label": "student",
+    "model": "term"
+  }
+},
+{
   "model": "sessions.session",
   "pk": "7acpwymmhihppx0kxact4i20n5q9dbjm",
   "fields": {
@@ -173,6 +181,22 @@
   "fields": {
     "session_data": "MDczNTlkMDMwZWJmNDgxZjQ4ZmU1ZTNmMzFmMzdmZTM4ZWRjZjg0MDp7Il9hdXRoX3VzZXJfaGFzaCI6IjIzOTc1YzM0NGQ2MjczZDgwYzhlYzMzMTcwYjBlM2QwMThiMWFmYmIiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiI0In0=",
     "expire_date": "2016-06-12T09:20:39.323Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "aqugg8ns8hz0vsn86ed0t6y0hrlsck2l",
+  "fields": {
+    "session_data": "MDczNTlkMDMwZWJmNDgxZjQ4ZmU1ZTNmMzFmMzdmZTM4ZWRjZjg0MDp7Il9hdXRoX3VzZXJfaGFzaCI6IjIzOTc1YzM0NGQ2MjczZDgwYzhlYzMzMTcwYjBlM2QwMThiMWFmYmIiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiI0In0=",
+    "expire_date": "2016-06-12T14:29:27.922Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "oxlzehe2qi39x1mmt9i6jp25smq5a5rq",
+  "fields": {
+    "session_data": "MDczNTlkMDMwZWJmNDgxZjQ4ZmU1ZTNmMzFmMzdmZTM4ZWRjZjg0MDp7Il9hdXRoX3VzZXJfaGFzaCI6IjIzOTc1YzM0NGQ2MjczZDgwYzhlYzMzMTcwYjBlM2QwMThiMWFmYmIiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiI0In0=",
+    "expire_date": "2016-06-12T11:46:35.805Z"
   }
 },
 {
@@ -332,7 +356,7 @@
   "fields": {
     "course": 1,
     "block": "A",
-    "academic_year": 1,
+    "academic_year": 2,
     "schedule": 1,
     "professor": 1,
     "location": "AS 302",
@@ -372,11 +396,52 @@
   }
 },
 {
+  "model": "sais.courseoffered",
+  "pk": 4,
+  "fields": {
+    "course": 4,
+    "block": "A",
+    "academic_year": 1,
+    "schedule": 2,
+    "professor": 4,
+    "location": "AS 304",
+    "campus": 1,
+    "price": 1000,
+    "slots": 30
+  }
+},
+{
   "model": "student.scholarship",
   "pk": 1,
   "fields": {
     "name": "DOST RA7687",
     "tuition_subsidy": 10000
+  }
+},
+{
+  "model": "student.term",
+  "pk": 1,
+  "fields": {
+    "term": 1,
+    "student": 1
+  }
+},
+{
+  "model": "student.enrolledcourse",
+  "pk": 1,
+  "fields": {
+    "course": 1,
+    "student": 1,
+    "grade": 1.25
+  }
+},
+{
+  "model": "student.enrolledcourse",
+  "pk": 2,
+  "fields": {
+    "course": 4,
+    "student": 1,
+    "grade": 1.5
   }
 },
 {
@@ -929,6 +994,33 @@
   }
 },
 {
+  "model": "auth.permission",
+  "pk": 61,
+  "fields": {
+    "name": "Can add term",
+    "content_type": 21,
+    "codename": "add_term"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 62,
+  "fields": {
+    "name": "Can change term",
+    "content_type": 21,
+    "codename": "change_term"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 63,
+  "fields": {
+    "name": "Can delete term",
+    "content_type": 21,
+    "codename": "delete_term"
+  }
+},
+{
   "model": "auth.user",
   "pk": 1,
   "fields": {
@@ -987,7 +1079,7 @@
   "pk": 4,
   "fields": {
     "password": "pbkdf2_sha256$24000$j8eN50SVf467$WZ2jOF2meCaC9rhuxa8H5uHMGVk4jzUeijcWwHbvkME=",
-    "last_login": "2016-05-29T09:20:39.311Z",
+    "last_login": "2016-05-29T14:29:27.911Z",
     "is_superuser": false,
     "username": "JTPEDRO",
     "first_name": "",
@@ -1014,6 +1106,24 @@
     "is_staff": false,
     "is_active": true,
     "date_joined": "2016-05-29T09:26:53.940Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 6,
+  "fields": {
+    "password": "pbkdf2_sha256$24000$L56hu9R7PbWT$QjMunEWPrQCMMiQ3Li5BrRMSd0uM1U0MDlARl/diVUk=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "KPESPINOSA",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2016-05-29T11:27:32.410Z",
     "groups": [],
     "user_permissions": []
   }
@@ -1052,10 +1162,21 @@
   }
 },
 {
+  "model": "sais.professor",
+  "pk": 4,
+  "fields": {
+    "last_name": "Espinosa",
+    "first_name": "Kurt Junsahean",
+    "middle_name": "Pelayo",
+    "campus": 1,
+    "login_profile": 6
+  }
+},
+{
   "model": "student.student",
   "pk": 1,
   "fields": {
-    "student_id": 201650100,
+    "student_id": 201550100,
     "login_profile": 4,
     "last_name": "Pedro",
     "first_name": "Juan",
@@ -1455,6 +1576,227 @@
     "content_type": 14,
     "object_id": "3",
     "object_repr": "CMSC 56 A UPC",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 31,
+  "fields": {
+    "action_time": "2016-05-29T10:07:01.906Z",
+    "user": 1,
+    "content_type": 18,
+    "object_id": "1",
+    "object_repr": "2016-50100 CMSC 11 A",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 32,
+  "fields": {
+    "action_time": "2016-05-29T10:07:41.826Z",
+    "user": 1,
+    "content_type": 18,
+    "object_id": "1",
+    "object_repr": "2016-50100 CMSC 11 A",
+    "action_flag": 2,
+    "change_message": "No fields changed."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 33,
+  "fields": {
+    "action_time": "2016-05-29T11:23:47.733Z",
+    "user": 1,
+    "content_type": 16,
+    "object_id": "1",
+    "object_repr": "2015-50100",
+    "action_flag": 2,
+    "change_message": "Changed student_id."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 34,
+  "fields": {
+    "action_time": "2016-05-29T11:27:32.468Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "6",
+    "object_repr": "KPESPINOSA",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 35,
+  "fields": {
+    "action_time": "2016-05-29T11:27:34.527Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "4",
+    "object_repr": "Espinosa, Kurt Junsahean",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 36,
+  "fields": {
+    "action_time": "2016-05-29T11:27:42.914Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "4",
+    "object_repr": "CMSC 123 A UPC",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 37,
+  "fields": {
+    "action_time": "2016-05-29T11:32:55.628Z",
+    "user": 1,
+    "content_type": 20,
+    "object_id": "1",
+    "object_repr": "2015-50100 CMSC 11 A",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 38,
+  "fields": {
+    "action_time": "2016-05-29T11:33:08.467Z",
+    "user": 1,
+    "content_type": 18,
+    "object_id": "1",
+    "object_repr": "2015-50100 CMSC 11 A",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 39,
+  "fields": {
+    "action_time": "2016-05-29T11:33:48.001Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "1",
+    "object_repr": "CMSC 11 A UPC",
+    "action_flag": 2,
+    "change_message": "Changed academic_year."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 40,
+  "fields": {
+    "action_time": "2016-05-29T12:05:18.258Z",
+    "user": 1,
+    "content_type": 20,
+    "object_id": "2",
+    "object_repr": "2015-50100 CMSC 123 A",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 41,
+  "fields": {
+    "action_time": "2016-05-29T12:45:38.630Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "2",
+    "object_repr": "10:30:00-12:00:00 M-W",
+    "action_flag": 2,
+    "change_message": "Changed days."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 42,
+  "fields": {
+    "action_time": "2016-05-29T12:45:43.292Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "2",
+    "object_repr": "10:30:00-12:00:00 M-Th",
+    "action_flag": 2,
+    "change_message": "Changed days."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 43,
+  "fields": {
+    "action_time": "2016-05-29T12:45:48.206Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "1",
+    "object_repr": "09:00:00-10:30:00 M-T-W-Th",
+    "action_flag": 2,
+    "change_message": "Changed days."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 44,
+  "fields": {
+    "action_time": "2016-05-29T12:46:26.689Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "1",
+    "object_repr": "09:00:00-10:30:00 M-Th",
+    "action_flag": 2,
+    "change_message": "Changed days."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 45,
+  "fields": {
+    "action_time": "2016-05-29T12:47:46.905Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "1",
+    "object_repr": "09:00:00-10:30:00 M-T",
+    "action_flag": 2,
+    "change_message": "Changed days."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 46,
+  "fields": {
+    "action_time": "2016-05-29T12:48:37.998Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "1",
+    "object_repr": "09:00:00-10:30:00 M-Th",
+    "action_flag": 2,
+    "change_message": "Changed days."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 47,
+  "fields": {
+    "action_time": "2016-05-29T13:09:15.974Z",
+    "user": 1,
+    "content_type": 21,
+    "object_id": "1",
+    "object_repr": "Term object",
     "action_flag": 1,
     "change_message": "Added."
   }

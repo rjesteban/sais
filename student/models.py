@@ -70,9 +70,32 @@ class Student(models.Model):
         return total/weights
 
 
+class Term(models.Model):
+    term = models.ForeignKey(AcademicYear)
+    student = models.ForeignKey(Student, related_name='terms')
+
+    def __str__(self):
+        return str(self.term) + ' : ' + str(self.student)
+
+    @property
+    def gwa(self):
+        term = self.term
+        stud = self.student
+        total = 0.0
+        weights = 0.0
+        courses = EnrolledCourse.objects.filter(
+            student__pk=stud.pk, course__academic_year=term)
+        if len(courses) != 0:
+            for course in courses:
+                total += course.grade * course.course.course.units
+                weights += course.course.course.units
+            return total/weights
+        return 'Not yet available'
+
+
 class Transaction(models.Model):
     TRANSACTION_STATUS = ((1, 'Unpaid'), (2, 'Promised'), (3, 'Paid'))
-    academic_calendar = models.OneToOneField(AcademicYear)
+    term = models.OneToOneField(AcademicYear)
     student = models.ForeignKey(Student)
     total = models.FloatField(null=False)
     date = models.DateTimeField(auto_now_add=True)

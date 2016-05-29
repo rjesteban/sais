@@ -17,6 +17,7 @@ urlpatterns = [
     url(r'^view-profile$', views.ProfileView.as_view(), name='profile'),
     url(r'^grades$', views.GradesView.as_view(), name='grades'),
     url(r'^courses$', views.ListCoursesView.as_view(), name='enlist'),
+    url(r'^(?P<pk>[0-9]+)/grade$', views.GradesTermView.as_view(), name='term'),
     # url(r'^(?P<pk>[0-9]+)/edit-profile$', views.EditProfileView.as_view(),
     #     name='edit-profile'),
     # url(r^/enroll/^$, views.EnrollClassView.as_view(),name='enlist')

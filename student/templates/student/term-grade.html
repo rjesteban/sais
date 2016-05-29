@@ -1,0 +1,33 @@
+{% extends 'student/base.html' %}
+{% load staticfiles %}
+{% block body %}
+    <div align="center"> Grades for {{ term.term }} </div>
+    <div align="center"> Name: {{ term.student.name }} </div>
+    <div align="center"> Student No: {{ term.student }} </div>
+    <div align="center"> Course: {{ term.student.program }} </div>
+    <br>
+    
+
+    <table align="center">
+        <tr>
+            <td>Course Code</td>
+            <td>Course Description</td>
+            <td>Units</td>
+            <td>Grade</td>
+        </tr>
+        {% for course in courses %}
+            <tr>
+                <td>{{ course.course.course }}</td>
+                <td>{{ course.course.course.name }}</td>
+                <td>{{ course.course.course.units }}</td>
+                <td>{{ course.grade }}</td>
+            </tr>
+        {% endfor %}
+        <tr>
+            <td></td><td></td>
+            <td>GWA: </td>
+            <td>{{ term.gwa }}</td>
+        </tr>
+    </table>
+
+{% endblock %}
