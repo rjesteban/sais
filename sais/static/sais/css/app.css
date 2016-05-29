@@ -18,12 +18,64 @@ li a {
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 25px 15px;
+    align-self: auto;
     text-decoration: none;
+    line-height: 32px;
 }
 
 li a:hover:not(.active) {
     background-color: #111;
+}
+
+p {
+  margin-bottom: 10px;
+}
+
+th, td {
+  padding: 4px 15px;
+}
+
+.login {
+  padding-bottom: 10px;
+  position: fixed;
+  right: 50px;
+  float: right;
+}
+
+.boxed {
+  border: 1px solid black ;
+  border-radius: 3px;
+  margin: auto;
+  width: 250px;
+  background: white;
+  border-radius: 3px;
+}
+
+.error {
+  color: Red;
+  text-align: right;
+}
+
+.muted {
+  color: #999;
+}
+
+#announcement {
+  float: left;
+  padding-left: 70px;
+  width: 65%;
+}
+
+#footer {
+  box-sizing: border-box;
+  background: #333;
+  color: white;
+  position:fixed;
+  text-align: center;
+  bottom: 0;
+  width:100%;
+  margin: 0;
 }
 
 .active {
