@@ -102,10 +102,8 @@ class CourseSchedule(models.Model):
                 elif i == 3:
                     days_list.append('Th')
                 elif i == 4:
-                    days_list.append('W')
-                elif i == 5:
                     days_list.append('F')
-                elif i == 6:
+                elif i == 5:
                     days_list.append('S')
         return days_list
 
