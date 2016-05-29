@@ -1,4 +1,5 @@
 {% extends 'student/base.html' %}
+{% load staticfiles %}
 <html>
 
 <head>
@@ -8,22 +9,92 @@
 {% block body %}
     <div>
         {%if not user.is_authenticated %}
-        <div id="container">
+        <div style="padding-bottom: 30px;">
+                <img src="{% static 'sais/images/campuses.jpg'%}" width="100%" height="100%">
+        </div>
+
+        <div id="announcement" class="container">
+          <h5>ANNOUNCEMENTS</h5>
+          <h6 style="margin-bottom:10px"><strong>Log-in, Application, and Appeal Period for UPCAT Qualifiers in AY 2016-2017</strong></h6>
+          <p class="muted">22 Apr 2016</p>
+          <p>
+            Please take note of the schedule of login, tuition discount application, and submission of additional information/appeal for UPCAT 2015 Qualifiers.
+            <table>
+                <tr>
+                  <td>Log-in and tuition discount application</td>
+                  <td>27 APRIL to 1 MAY 2016</td>
+                </tr>
+                <tr>
+                  <td>Posting of results</td>
+                  <td>2 MAY 2016</td>
+                </tr>
+                <tr>
+                  <td>Submission of additional information/appeals</td>
+                  <td>2-6 MAY 2016</td>
+                </tr>
+            </table>
+          </p>
+
+          <h6 style="margin-bottom:10px"><strong>General Registration for Mid-Year</strong></h6>
+          <p class="muted">22 March 2016</p>
+          <p>
+            <table>
+                <tr>
+                  <td>UP Diliman</td>
+                  <td>9 JUNE to 10 JUNE 2016</td>
+                </tr>
+                <tr>
+                  <td>UP Manila</td>
+                  <td>6 JUNE to 7 JUNE 2016</td>
+                </tr>
+                <tr>
+                  <td>UP Los Banos</td>
+                  <td>8 JUNE to 9 JUNE 2016</td>
+                </tr>
+                <tr>
+                  <td>UP Visayas</td>
+                  <td>6 JUNE to 7 JUNE 2016</td>
+                </tr>
+                <tr>
+                  <td>UP Open University</td>
+                  <td>1 JUNE to 7 JUNE 2016</td>
+                </tr>
+                <tr>
+                  <td>UP Mindanao</td>
+                  <td>13 JUNE to 15 JUNE 2016</td>
+                </tr>
+                <tr>
+                  <td>UP Baguio</td>
+                  <td>9 JUNE to 10 JUNE 2016</td>
+                </tr>
+                <tr>
+                  <td>UP Cebu</td>
+                  <td>13 JUNE to 14 JUNE 2016</td>
+                </tr>
+            </table>
+          </p>
+        </div>
+
+        <div id="container" class="boxed login">
             {% if form.non_field_errors %}
                     <div><span class="error label">{{ form.non_field_errors | striptags }}</span></div>
             {% endif %}
-            <h3 align="center">Login</h3>
+            <h5 align="center" style="background: #f3f3f3;">Login to SAIS</h5>
             <form method="post" align="center">
                 {% csrf_token %}
-                <label class="title"><b>Username</b></label>
-                <input type="text" name="username" placeholder="Enter your username" required autocomplete="on" />
-                <label class="title"><b>Password</b></label>
-                <input type="password" name="password" placeholder="Enter your password" required />
+                <!-- <label class="title"><b>Username</b></label> -->
+                <input type="text" name="username" placeholder="SAIS Username" required autocomplete="on" />
+                <!-- <label class="title"><b>Password</b></label> -->
+                <input type="password" name="password" placeholder="Password" required />
                 <br>
                 <input type="submit" class="button expand" value="Sign In" />
             </form>
         </div>
         {% endif %}
+
+        <div class="row">
+          <p id="footer" >Copyright &copy; 2016 All Rights Reserved
+        </div>
     </div>
 {% endblock %}
 

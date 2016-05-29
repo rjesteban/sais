@@ -10,15 +10,19 @@
         <link rel="stylesheet" type="text/css" href="{% static 'sais/css/app.css' %}/">
         {% block stylesheets %}
         {% endblock %}
-        <ul>
-            <li><img src="{% static 'sais/images/up-logo-small.png' %}"/></li>
-        <li><a style="font-size:20px" href="{% url 'student:menu' %}"> UP Student Academic Information System</a></li>
-        {% if user.is_authenticated %}
-        <li style="float:right"><a href="{% url 'student:logout' %}">Logout</a></li>
-        <li style="float:right;color:white;"><a href="{% url 'student:profile' %}">Hi, {{student.name}}</a></li>
-        {% endif %}
-        </ul>
-
+        <div class="media" align="center">
+          <div class="media-body">
+            <ul style="margin-bottom: 0px">
+                <li><img src="{% static 'sais/images/up-logo.png' %}" width="70px" height="70px" style="padding-top: 5px;padding-left: 5px;"/></li>
+                <li><h7><a style="font-size:20px" href="{% url 'student:menu' %}"> Student Academic Information System</a>
+                </h7></li>
+                {% if user.is_authenticated %}
+                <li style="float:right"><a href="{% url 'student:logout' %}">Log Out</a></li>
+                <li style="float:right;color:white;"><a href="{% url 'student:profile' %}">Hi, {{student.first_name}}</a></li>
+            {% endif %}
+            </ul>
+          </div>
+        </div>
     </head>
     <body>
         <!-- news here -->
