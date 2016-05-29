@@ -56,6 +56,19 @@ class Student(models.Model):
         scholarships = self.studentscholarship_set.all()
         return scholarships
 
+    @property
+    def gwa(self):
+        grades = self.enrolled_courses.order_by('course')
+        total = 0.0
+        weights = 0.0
+        for grade in grades:
+            if grade.grade <= 5.0:
+                total += (grade.grade*grade.course.course.units)
+                weights += grade.course.course.units
+        if weights == 0:
+            return 'Not yet available'
+        return total/weights
+
 
 class Transaction(models.Model):
     TRANSACTION_STATUS = ((1, 'Unpaid'), (2, 'Promised'), (3, 'Paid'))
@@ -68,8 +81,24 @@ class Transaction(models.Model):
     def __str__(self):
         return str(self.pk) + ': ' + str(self.student)
 
+    @property
+    def enrolled(self):
+        if status == 3 or status == 2:
+            return True
+        return False
+
 
 class EnlistedCourse(models.Model):
+    course = models.ForeignKey(CourseOffered, related_name='enlisted')
+    student = models.ForeignKey(Student, related_name='enlisted_courses')
+
+    def __str__(self):
+        return str(self.student) + ' ' +\
+               str(self.course.course) + ' ' +\
+               str(self.course.block)
+
+
+class EnrolledCourse(models.Model):
     GRADE_CHOICES = (
         (1.00, '1.00',),
         (1.25, '1.25',),
@@ -83,11 +112,11 @@ class EnlistedCourse(models.Model):
         (4.00, '4.00',),
         (5.00, '5.00',),
         (6.00, 'INC',),
-        (7.00, 'No Grade',),
+        (7.00, 'NO GRADE',),
+        (8.00, 'DROPPED'),
         )
-    course = models.ForeignKey(CourseOffered)
-    student = models.ForeignKey(Student)
-    is_enrolled = models.BooleanField(default=False, blank=False)
+    course = models.ForeignKey(CourseOffered, related_name='enrolled')
+    student = models.ForeignKey(Student, related_name='enrolled_courses')
     grade = models.FloatField(choices=GRADE_CHOICES, default=7.00)
 
     def __str__(self):

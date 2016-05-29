@@ -1,0 +1,36 @@
+{% extends 'student/base.html' %}
+
+{% block body %}
+
+<h2 align="center">Courses Offered</h2>
+<h5 align="center">{{ course_list.first.academic_year }}</h5>
+<table align="center">
+    <thead>
+        <td>Course</td>
+        <td>Block</td>
+        <td>Professor</td>
+        <td>Schedule</td>
+        <td>Action</td>
+    </thead>
+    <tbody>
+        {% for course in course_list %}
+        {% if not course in enrolled_courses %}
+        <tr>
+            <td> {{course.course }} </td>
+            <td> {{course.block}} </td>
+            <td> {{course.professor}} </td>
+            <td> {{course.schedule.start_time}} - {{course.schedule.end_time}}  </td>
+            <td>
+                {% if course in enlisted_courses %}
+                Remove
+                {% else %}
+                Add
+                {% endif %}
+            </td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

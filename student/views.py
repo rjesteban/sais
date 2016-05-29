@@ -4,8 +4,9 @@ from django.http import Http404, HttpResponse, HttpResponseRedirect
 # from django.template import loader
 from django.views.generic import DetailView, ListView
 from .models import Student
-from sais.views import LoginView, LogoutView
+from sais.models import CourseOffered
 from sais.forms import LoginForm
+from sais.views import LoginView, LogoutView
 from sais.mixins import LoginRequiredMixin
 
 
@@ -38,3 +39,38 @@ class ProfileView(LoginRequiredMixin, ListView):
         context = super(ProfileView, self).get_context_data(**kwargs)
         context['student'] = self.request.user.student
         return context
+
+
+class GradesView(LoginRequiredMixin, ListView):
+    template_name = 'student/grades.html'
+    model = Student
+
+    def get_context_data(self, **kwargs):
+        context = super(GradesView, self).get_context_data(**kwargs)
+        student = self.request.user.student
+        context['student'] = student
+        context['grades'] = student.enrolled_courses.order_by('course')
+        return context
+
+
+class ListCoursesView(LoginRequiredMixin, ListView):
+    template_name = 'student/courses.html'
+    model = CourseOffered
+    paginate_by = 10
+    context_object_name = 'course_list'
+
+    def get_context_data(self, **kwargs):
+        context = super(ListCoursesView, self).get_context_data(**kwargs)
+        student = self.request.user.student
+        context['student'] = student
+        courses = CourseOffered.objects.filter(
+            academic_year__open_for_enrollment=True)
+        context.update({'course_list': courses})
+        context['enlisted_courses'] = CourseOffered.objects.filter(
+            enlisted__student__pk=student.pk)
+        context['enrolled_courses'] = CourseOffered.objects.filter(
+            enrolled__student__pk=student.pk)
+        return context
+
+#    def get_all_courses(self):
+#        return CourseOffered

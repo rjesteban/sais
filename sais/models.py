@@ -41,7 +41,7 @@ class Professor(models.Model):
 
 class STSBracket(models.Model):
     name = models.CharField(max_length=100, unique=True, blank=False)
-    bracket = models.CharField(unique=True, blank=False, max_length=3)
+    bracket = models.CharField(unique=True, blank=False, max_length=5)
     tuition_subsidy = models.FloatField(blank=False)
 
     def __str__(self):
@@ -58,27 +58,69 @@ class Course(models.Model):
     def __str__(self):
         return self.code_name + ' ' + str(self.course_no)
 
+    class Meta:
+        ordering = ['code_name', 'course_no', 'units']
+
 
 class AcademicYear(models.Model):
-    semester = models.IntegerField(blank=False)
+    SEMESTER_CHOICES = (
+        (1, 'First Semester'),
+        (2, 'Second Semester'),
+        (3, 'Summer'),
+        )
+    semester = models.IntegerField(blank=False, choices=SEMESTER_CHOICES)
     start_year = models.IntegerField(blank=False)
     end_year = models.IntegerField(blank=False)
+    open_for_enrollment = models.BooleanField(blank=False, default=False)
 
     def __str__(self):
         return str(self.semester) + ' sem ' +\
                    str(self.start_year) + '-' + \
                    str(self.end_year)
 
+    class Meta:
+        ordering = ['start_year', 'end_year', 'semester']
+
+
+class CourseSchedule(models.Model):
+    start_time = models.TimeField(blank=False)
+    end_time = models.TimeField(blank=False)
+    days = models.IntegerField(blank=False)
+
+    @property
+    def get_days(self):
+        days = bin(self.days)[2:].zfill(6)
+        days_list = []
+        for i in range(len(days)):
+            if days[i] == '1':
+                if i == 0:
+                    days_list.append('M')
+                elif i == 1:
+                    days_list.append('T')
+                elif i == 2:
+                    days_list.append('W')
+                elif i == 3:
+                    days_list.append('Th')
+                elif i == 4:
+                    days_list.append('W')
+                elif i == 5:
+                    days_list.append('F')
+                elif i == 6:
+                    days_list.append('S')
+        return days_list
+
+    def __str__(self):
+        my_list = self.get_days
+        return str(self.start_time) + '-' + str(self.end_time) + ' '\
+            + '-'.join(my_list)
+
 
 class CourseOffered(models.Model):
     course = models.ForeignKey(Course)
     block = models.CharField(blank=False, max_length=10)
     academic_year = models.ForeignKey(AcademicYear)
+    schedule = models.ForeignKey(CourseSchedule)
     professor = models.ForeignKey(Professor)
-    start_hour_time = models.IntegerField(blank=False)
-    start_min_time = models.IntegerField(blank=False)
-    end_hour_time = models.IntegerField(blank=False)
-    end_min_time = models.IntegerField(blank=False)
     location = models.CharField(max_length=100, blank=False)
     campus = models.ForeignKey(Campus)
     price = models.IntegerField(blank=False)
@@ -86,3 +128,6 @@ class CourseOffered(models.Model):
 
     def __str__(self):
         return str(self.course) + ' ' + self.block + ' ' + self.campus.acronym
+
+    class Meta:
+        ordering = ['academic_year']

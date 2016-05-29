@@ -15,7 +15,7 @@
         <li><a style="font-size:20px" href="{% url 'student:menu' %}"> UP Student Academic Information System</a></li>
         {% if user.is_authenticated %}
         <li style="float:right"><a href="{% url 'student:logout' %}">Logout</a></li>
-        <li style="float:right;color:white;padding:14px">Hi, {{student.name}}</li>
+        <li style="float:right;color:white;"><a href="{% url 'student:profile' %}">Hi, {{student.name}}</a></li>
         {% endif %}
         </ul>
 

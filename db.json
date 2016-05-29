@@ -100,15 +100,15 @@
   "pk": 13,
   "fields": {
     "app_label": "sais",
-    "model": "courseoffered"
+    "model": "courseschedule"
   }
 },
 {
   "model": "contenttypes.contenttype",
   "pk": 14,
   "fields": {
-    "app_label": "student",
-    "model": "scholarship"
+    "app_label": "sais",
+    "model": "courseoffered"
   }
 },
 {
@@ -116,7 +116,7 @@
   "pk": 15,
   "fields": {
     "app_label": "student",
-    "model": "student"
+    "model": "scholarship"
   }
 },
 {
@@ -124,7 +124,7 @@
   "pk": 16,
   "fields": {
     "app_label": "student",
-    "model": "transaction"
+    "model": "student"
   }
 },
 {
@@ -132,7 +132,7 @@
   "pk": 17,
   "fields": {
     "app_label": "student",
-    "model": "enlistedcourse"
+    "model": "transaction"
   }
 },
 {
@@ -140,7 +140,39 @@
   "pk": 18,
   "fields": {
     "app_label": "student",
+    "model": "enlistedcourse"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 19,
+  "fields": {
+    "app_label": "student",
     "model": "studentscholarship"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 20,
+  "fields": {
+    "app_label": "student",
+    "model": "enrolledcourse"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "7acpwymmhihppx0kxact4i20n5q9dbjm",
+  "fields": {
+    "session_data": "MDIwOWYyNDM1N2ViM2VlZjRjOTM5Zjk3YmRjODY0NTY0YTIyYTU2Mjp7Il9hdXRoX3VzZXJfaGFzaCI6ImEzMTQ0NjI0NmUzNzMwOGQ5ZTUxMGMzNGNkYWRhOGU5NjZkM2Y0ZGUiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=",
+    "expire_date": "2016-06-12T08:57:58.416Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "7j6icmg5xn3cuquxtu4qgciii6xewh0h",
+  "fields": {
+    "session_data": "MDczNTlkMDMwZWJmNDgxZjQ4ZmU1ZTNmMzFmMzdmZTM4ZWRjZjg0MDp7Il9hdXRoX3VzZXJfaGFzaCI6IjIzOTc1YzM0NGQ2MjczZDgwYzhlYzMzMTcwYjBlM2QwMThiMWFmYmIiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiI0In0=",
+    "expire_date": "2016-06-12T09:20:39.323Z"
   }
 },
 {
@@ -150,15 +182,6 @@
     "name": "University of the Philippines Cebu",
     "acronym": "UPC",
     "address": "Gorordo Ave., Lahug, Cebu City"
-  }
-},
-{
-  "model": "sais.campus",
-  "pk": 2,
-  "fields": {
-    "name": "University of the Philippines Diliman",
-    "acronym": "UPD",
-    "address": "Diliman, Quezon City, NCR, Philippines"
   }
 },
 {
@@ -180,6 +203,15 @@
   }
 },
 {
+  "model": "sais.stsbracket",
+  "pk": 2,
+  "fields": {
+    "name": "Partial Discount 60 percent",
+    "bracket": "PD60",
+    "tuition_subsidy": 0.6
+  }
+},
+{
   "model": "sais.course",
   "pk": 1,
   "fields": {
@@ -194,11 +226,66 @@
   "model": "sais.course",
   "pk": 2,
   "fields": {
-    "name": "Fundamentals of Programming",
+    "name": "Introduction to Algebra",
+    "code_name": "Math",
+    "course_no": 17,
+    "units": 5.0,
+    "prerequisite": null
+  }
+},
+{
+  "model": "sais.course",
+  "pk": 3,
+  "fields": {
+    "name": "Discrete Mathematics in Computer Science 1",
     "code_name": "CMSC",
-    "course_no": 21,
+    "course_no": 56,
     "units": 3.0,
-    "prerequisite": 1
+    "prerequisite": 2
+  }
+},
+{
+  "model": "sais.course",
+  "pk": 4,
+  "fields": {
+    "name": "Data Structures",
+    "code_name": "CMSC",
+    "course_no": 123,
+    "units": 3.0,
+    "prerequisite": 3
+  }
+},
+{
+  "model": "sais.course",
+  "pk": 5,
+  "fields": {
+    "name": "Database Management",
+    "code_name": "CMSC",
+    "course_no": 127,
+    "units": 3.0,
+    "prerequisite": 4
+  }
+},
+{
+  "model": "sais.course",
+  "pk": 6,
+  "fields": {
+    "name": "Software Engineering",
+    "code_name": "CMSC",
+    "course_no": 128,
+    "units": 3.0,
+    "prerequisite": 5
+  }
+},
+{
+  "model": "sais.course",
+  "pk": 7,
+  "fields": {
+    "name": "Web Engineering",
+    "code_name": "CMSC",
+    "course_no": 126,
+    "units": 3.0,
+    "prerequisite": 6
   }
 },
 {
@@ -206,8 +293,37 @@
   "pk": 1,
   "fields": {
     "semester": 1,
+    "start_year": 2016,
+    "end_year": 2017,
+    "open_for_enrollment": true
+  }
+},
+{
+  "model": "sais.academicyear",
+  "pk": 2,
+  "fields": {
+    "semester": 2,
     "start_year": 2015,
-    "end_year": 2016
+    "end_year": 2016,
+    "open_for_enrollment": false
+  }
+},
+{
+  "model": "sais.courseschedule",
+  "pk": 1,
+  "fields": {
+    "start_time": "09:00:00",
+    "end_time": "10:30:00",
+    "days": 36
+  }
+},
+{
+  "model": "sais.courseschedule",
+  "pk": 2,
+  "fields": {
+    "start_time": "10:30:00",
+    "end_time": "12:00:00",
+    "days": 18
   }
 },
 {
@@ -215,14 +331,41 @@
   "pk": 1,
   "fields": {
     "course": 1,
-    "block": "A - Lec",
+    "block": "A",
     "academic_year": 1,
+    "schedule": 1,
     "professor": 1,
-    "start_hour_time": 9,
-    "start_min_time": 0,
-    "end_hour_time": 10,
-    "end_min_time": 0,
+    "location": "AS 302",
+    "campus": 1,
+    "price": 1000,
+    "slots": 30
+  }
+},
+{
+  "model": "sais.courseoffered",
+  "pk": 2,
+  "fields": {
+    "course": 2,
+    "block": "B",
+    "academic_year": 1,
+    "schedule": 2,
+    "professor": 2,
     "location": "AS 244",
+    "campus": 1,
+    "price": 1000,
+    "slots": 30
+  }
+},
+{
+  "model": "sais.courseoffered",
+  "pk": 3,
+  "fields": {
+    "course": 3,
+    "block": "A",
+    "academic_year": 2,
+    "schedule": 1,
+    "professor": 3,
+    "location": "AS 302",
     "campus": 1,
     "price": 1000,
     "slots": 30
@@ -234,16 +377,6 @@
   "fields": {
     "name": "DOST RA7687",
     "tuition_subsidy": 10000
-  }
-},
-{
-  "model": "student.enlistedcourse",
-  "pk": 1,
-  "fields": {
-    "course": 1,
-    "student": 1,
-    "is_enrolled": true,
-    "grade": 7.0
   }
 },
 {
@@ -583,170 +716,224 @@
   "model": "auth.permission",
   "pk": 37,
   "fields": {
-    "name": "Can add course offered",
+    "name": "Can add course schedule",
     "content_type": 13,
-    "codename": "add_courseoffered"
+    "codename": "add_courseschedule"
   }
 },
 {
   "model": "auth.permission",
   "pk": 38,
   "fields": {
-    "name": "Can change course offered",
+    "name": "Can change course schedule",
     "content_type": 13,
-    "codename": "change_courseoffered"
+    "codename": "change_courseschedule"
   }
 },
 {
   "model": "auth.permission",
   "pk": 39,
   "fields": {
-    "name": "Can delete course offered",
+    "name": "Can delete course schedule",
     "content_type": 13,
-    "codename": "delete_courseoffered"
+    "codename": "delete_courseschedule"
   }
 },
 {
   "model": "auth.permission",
   "pk": 40,
   "fields": {
-    "name": "Can add scholarship",
+    "name": "Can add course offered",
     "content_type": 14,
-    "codename": "add_scholarship"
+    "codename": "add_courseoffered"
   }
 },
 {
   "model": "auth.permission",
   "pk": 41,
   "fields": {
-    "name": "Can change scholarship",
+    "name": "Can change course offered",
     "content_type": 14,
-    "codename": "change_scholarship"
+    "codename": "change_courseoffered"
   }
 },
 {
   "model": "auth.permission",
   "pk": 42,
   "fields": {
-    "name": "Can delete scholarship",
+    "name": "Can delete course offered",
     "content_type": 14,
-    "codename": "delete_scholarship"
+    "codename": "delete_courseoffered"
   }
 },
 {
   "model": "auth.permission",
   "pk": 43,
   "fields": {
-    "name": "Can add student",
+    "name": "Can add scholarship",
     "content_type": 15,
-    "codename": "add_student"
+    "codename": "add_scholarship"
   }
 },
 {
   "model": "auth.permission",
   "pk": 44,
   "fields": {
-    "name": "Can change student",
+    "name": "Can change scholarship",
     "content_type": 15,
-    "codename": "change_student"
+    "codename": "change_scholarship"
   }
 },
 {
   "model": "auth.permission",
   "pk": 45,
   "fields": {
-    "name": "Can delete student",
+    "name": "Can delete scholarship",
     "content_type": 15,
-    "codename": "delete_student"
+    "codename": "delete_scholarship"
   }
 },
 {
   "model": "auth.permission",
   "pk": 46,
   "fields": {
-    "name": "Can add transaction",
+    "name": "Can add student",
     "content_type": 16,
-    "codename": "add_transaction"
+    "codename": "add_student"
   }
 },
 {
   "model": "auth.permission",
   "pk": 47,
   "fields": {
-    "name": "Can change transaction",
+    "name": "Can change student",
     "content_type": 16,
-    "codename": "change_transaction"
+    "codename": "change_student"
   }
 },
 {
   "model": "auth.permission",
   "pk": 48,
   "fields": {
-    "name": "Can delete transaction",
+    "name": "Can delete student",
     "content_type": 16,
-    "codename": "delete_transaction"
+    "codename": "delete_student"
   }
 },
 {
   "model": "auth.permission",
   "pk": 49,
   "fields": {
-    "name": "Can add enlisted course",
+    "name": "Can add transaction",
     "content_type": 17,
-    "codename": "add_enlistedcourse"
+    "codename": "add_transaction"
   }
 },
 {
   "model": "auth.permission",
   "pk": 50,
   "fields": {
-    "name": "Can change enlisted course",
+    "name": "Can change transaction",
     "content_type": 17,
-    "codename": "change_enlistedcourse"
+    "codename": "change_transaction"
   }
 },
 {
   "model": "auth.permission",
   "pk": 51,
   "fields": {
-    "name": "Can delete enlisted course",
+    "name": "Can delete transaction",
     "content_type": 17,
-    "codename": "delete_enlistedcourse"
+    "codename": "delete_transaction"
   }
 },
 {
   "model": "auth.permission",
   "pk": 52,
   "fields": {
-    "name": "Can add student scholarship",
+    "name": "Can add enlisted course",
     "content_type": 18,
-    "codename": "add_studentscholarship"
+    "codename": "add_enlistedcourse"
   }
 },
 {
   "model": "auth.permission",
   "pk": 53,
   "fields": {
-    "name": "Can change student scholarship",
+    "name": "Can change enlisted course",
     "content_type": 18,
-    "codename": "change_studentscholarship"
+    "codename": "change_enlistedcourse"
   }
 },
 {
   "model": "auth.permission",
   "pk": 54,
   "fields": {
-    "name": "Can delete student scholarship",
+    "name": "Can delete enlisted course",
     "content_type": 18,
+    "codename": "delete_enlistedcourse"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 55,
+  "fields": {
+    "name": "Can add student scholarship",
+    "content_type": 19,
+    "codename": "add_studentscholarship"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 56,
+  "fields": {
+    "name": "Can change student scholarship",
+    "content_type": 19,
+    "codename": "change_studentscholarship"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 57,
+  "fields": {
+    "name": "Can delete student scholarship",
+    "content_type": 19,
     "codename": "delete_studentscholarship"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 58,
+  "fields": {
+    "name": "Can add enrolled course",
+    "content_type": 20,
+    "codename": "add_enrolledcourse"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 59,
+  "fields": {
+    "name": "Can change enrolled course",
+    "content_type": 20,
+    "codename": "change_enrolledcourse"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 60,
+  "fields": {
+    "name": "Can delete enrolled course",
+    "content_type": 20,
+    "codename": "delete_enrolledcourse"
   }
 },
 {
   "model": "auth.user",
   "pk": 1,
   "fields": {
-    "password": "pbkdf2_sha256$24000$g1UmnoiMN6eI$fo1ixd/F95jBwETDCQvUtHGCHuabjMAb6jX8DZuONGo=",
-    "last_login": "2016-05-28T17:42:21.248Z",
+    "password": "pbkdf2_sha256$24000$YkH4t9gae413$VFGM86KiXSiCHEMjuLIXm0AyZNOCmoreQNNBwTl16HY=",
+    "last_login": "2016-05-29T08:57:58.398Z",
     "is_superuser": true,
     "username": "admin",
     "first_name": "",
@@ -754,7 +941,7 @@
     "email": "admin@example.com",
     "is_staff": true,
     "is_active": true,
-    "date_joined": "2016-05-28T16:51:10.137Z",
+    "date_joined": "2016-05-29T08:57:28.910Z",
     "groups": [],
     "user_permissions": []
   }
@@ -763,16 +950,16 @@
   "model": "auth.user",
   "pk": 2,
   "fields": {
-    "password": "pbkdf2_sha256$24000$ADhbFAFDsrtc$C0xSWjub1cSn7z0l13jdS/yGvLzIcsuc6lVrDCnfgXU=",
-    "last_login": "2016-05-28T17:41:55.002Z",
+    "password": "pbkdf2_sha256$24000$lc0vXm4uFNTC$kza0XIMv10/bo+CABCxQtTh3QtSzdJrKVxlht1I544A=",
+    "last_login": null,
     "is_superuser": false,
-    "username": "APESTEBAN",
+    "username": "SWFAMADOR",
     "first_name": "",
     "last_name": "",
     "email": "",
     "is_staff": false,
     "is_active": true,
-    "date_joined": "2016-05-28T16:51:49.584Z",
+    "date_joined": "2016-05-29T09:12:33.411Z",
     "groups": [],
     "user_permissions": []
   }
@@ -781,16 +968,52 @@
   "model": "auth.user",
   "pk": 3,
   "fields": {
-    "password": "pbkdf2_sha256$24000$QlQULPVRFKOg$VLKAZpZTNzQFOc5GZ6y4uGZd3Rl9ibtxcBi3oR5m7Zg=",
+    "password": "pbkdf2_sha256$24000$mJZpntTjcIlF$3Wx4BZnLbLLI3Y54z9uSMYaSyQweeJy817N1WK5reBA=",
     "last_login": null,
     "is_superuser": false,
-    "username": "RMDULACA",
+    "username": "LSALMOCERA",
     "first_name": "",
     "last_name": "",
     "email": "",
     "is_staff": false,
     "is_active": true,
-    "date_joined": "2016-05-28T16:54:43.814Z",
+    "date_joined": "2016-05-29T09:13:42.011Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 4,
+  "fields": {
+    "password": "pbkdf2_sha256$24000$j8eN50SVf467$WZ2jOF2meCaC9rhuxa8H5uHMGVk4jzUeijcWwHbvkME=",
+    "last_login": "2016-05-29T09:20:39.311Z",
+    "is_superuser": false,
+    "username": "JTPEDRO",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2016-05-29T09:19:04.134Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 5,
+  "fields": {
+    "password": "pbkdf2_sha256$24000$tAdNHu7xJUiO$Ar8sQeITmUuvcEU21pyGh4oquOBPLywL3Av0B/1UXcQ=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "NMENEGO",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2016-05-29T09:26:53.940Z",
     "groups": [],
     "user_permissions": []
   }
@@ -799,28 +1022,50 @@
   "model": "sais.professor",
   "pk": 1,
   "fields": {
-    "last_name": "Dulaca",
-    "first_name": "Ryan Ciriaco",
-    "middle_name": "Madolin",
+    "last_name": "Famador",
+    "first_name": "Sandra Mae",
+    "middle_name": "W",
+    "campus": 1,
+    "login_profile": 2
+  }
+},
+{
+  "model": "sais.professor",
+  "pk": 2,
+  "fields": {
+    "last_name": "Almocera",
+    "first_name": "Lorna",
+    "middle_name": "S.",
     "campus": 1,
     "login_profile": 3
+  }
+},
+{
+  "model": "sais.professor",
+  "pk": 3,
+  "fields": {
+    "last_name": "Enego",
+    "first_name": "Nico Martin",
+    "middle_name": "A",
+    "campus": 1,
+    "login_profile": 5
   }
 },
 {
   "model": "student.student",
   "pk": 1,
   "fields": {
-    "student_id": 201350109,
-    "login_profile": 2,
-    "last_name": "Esteban",
-    "first_name": "Arnold Joseph Caesar",
-    "middle_name": "Palmaras",
+    "student_id": 201650100,
+    "login_profile": 4,
+    "last_name": "Pedro",
+    "first_name": "Juan",
+    "middle_name": "Tests",
     "admitted_campus": 1,
-    "up_mail": "apesteban1@up.edu.ph",
+    "up_mail": "jtpedro@up.edu.ph",
     "program": 1,
-    "sts_bracket": 1,
-    "address": "263 V. Rama Ave., Brgy Calamba, Cebu City, 6000",
-    "birthday": "1996-03-29",
+    "sts_bracket": 2,
+    "address": "Mandaue Cebu City",
+    "birthday": "2000-05-29",
     "gender": "Male"
   }
 },
@@ -828,11 +1073,11 @@
   "model": "admin.logentry",
   "pk": 1,
   "fields": {
-    "action_time": "2016-05-28T16:51:49.670Z",
+    "action_time": "2016-05-29T08:58:47.971Z",
     "user": 1,
-    "content_type": 4,
-    "object_id": "2",
-    "object_repr": "APESTEBAN",
+    "content_type": 12,
+    "object_id": "1",
+    "object_repr": "1 sem 2016-2017",
     "action_flag": 1,
     "change_message": "Added."
   }
@@ -841,7 +1086,7 @@
   "model": "admin.logentry",
   "pk": 2,
   "fields": {
-    "action_time": "2016-05-28T16:52:06.576Z",
+    "action_time": "2016-05-29T08:59:00.007Z",
     "user": 1,
     "content_type": 7,
     "object_id": "1",
@@ -854,11 +1099,11 @@
   "model": "admin.logentry",
   "pk": 3,
   "fields": {
-    "action_time": "2016-05-28T16:52:17.606Z",
+    "action_time": "2016-05-29T08:59:16.377Z",
     "user": 1,
-    "content_type": 7,
-    "object_id": "2",
-    "object_repr": "University of the Philippines Diliman",
+    "content_type": 11,
+    "object_id": "1",
+    "object_repr": "CMSC 11",
     "action_flag": 1,
     "change_message": "Added."
   }
@@ -867,11 +1112,11 @@
   "model": "admin.logentry",
   "pk": 4,
   "fields": {
-    "action_time": "2016-05-28T16:52:28.617Z",
+    "action_time": "2016-05-29T08:59:41.866Z",
     "user": 1,
-    "content_type": 8,
-    "object_id": "1",
-    "object_repr": "BS Computer Science UPC",
+    "content_type": 11,
+    "object_id": "2",
+    "object_repr": "Math 17",
     "action_flag": 1,
     "change_message": "Added."
   }
@@ -880,7 +1125,124 @@
   "model": "admin.logentry",
   "pk": 5,
   "fields": {
-    "action_time": "2016-05-28T16:52:37.184Z",
+    "action_time": "2016-05-29T08:59:55.992Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "1",
+    "object_repr": "CourseSchedule object",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2016-05-29T09:12:33.465Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "2",
+    "object_repr": "SWFAMADOR",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2016-05-29T09:12:35.115Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "1",
+    "object_repr": "Famador, Sandra Mae",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2016-05-29T09:12:47.655Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "1",
+    "object_repr": "CMSC 11 A UPC",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2016-05-29T09:13:19.497Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "2",
+    "object_repr": "10:30:00-12:00:00 T-W",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2016-05-29T09:13:42.049Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "3",
+    "object_repr": "LSALMOCERA",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2016-05-29T09:13:43.910Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "2",
+    "object_repr": "Almocera, Lorna",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2016-05-29T09:13:49.587Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "2",
+    "object_repr": "Math 17 B UPC",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2016-05-29T09:16:31.704Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "1",
+    "object_repr": "1 sem 2016-2017",
+    "action_flag": 2,
+    "change_message": "Changed open_for_enrollment."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 14,
+  "fields": {
+    "action_time": "2016-05-29T09:16:50.440Z",
     "user": 1,
     "content_type": 10,
     "object_id": "1",
@@ -891,130 +1253,13 @@
 },
 {
   "model": "admin.logentry",
-  "pk": 6,
-  "fields": {
-    "action_time": "2016-05-28T16:52:53.727Z",
-    "user": 1,
-    "content_type": 15,
-    "object_id": "1",
-    "object_repr": "2013-50109",
-    "action_flag": 1,
-    "change_message": "Added."
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 7,
-  "fields": {
-    "action_time": "2016-05-28T16:53:08.127Z",
-    "user": 1,
-    "content_type": 14,
-    "object_id": "1",
-    "object_repr": "DOST RA7687",
-    "action_flag": 1,
-    "change_message": "Added."
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 8,
-  "fields": {
-    "action_time": "2016-05-28T16:53:10.115Z",
-    "user": 1,
-    "content_type": 18,
-    "object_id": "1",
-    "object_repr": "2013-50109: DOST RA7687",
-    "action_flag": 1,
-    "change_message": "Added."
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 9,
-  "fields": {
-    "action_time": "2016-05-28T16:54:21.083Z",
-    "user": 1,
-    "content_type": 11,
-    "object_id": "1",
-    "object_repr": "CMSC 11",
-    "action_flag": 1,
-    "change_message": "Added."
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 10,
-  "fields": {
-    "action_time": "2016-05-28T16:54:43.865Z",
-    "user": 1,
-    "content_type": 4,
-    "object_id": "3",
-    "object_repr": "RMDULACA",
-    "action_flag": 1,
-    "change_message": "Added."
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 11,
-  "fields": {
-    "action_time": "2016-05-28T16:54:45.976Z",
-    "user": 1,
-    "content_type": 9,
-    "object_id": "1",
-    "object_repr": "Dulaca, Ryan Ciriaco",
-    "action_flag": 1,
-    "change_message": "Added."
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 12,
-  "fields": {
-    "action_time": "2016-05-28T16:55:08.136Z",
-    "user": 1,
-    "content_type": 11,
-    "object_id": "1",
-    "object_repr": "CMSC 11",
-    "action_flag": 2,
-    "change_message": "No fields changed."
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 13,
-  "fields": {
-    "action_time": "2016-05-28T16:56:58.534Z",
-    "user": 1,
-    "content_type": 12,
-    "object_id": "1",
-    "object_repr": "1 sem 2015-2016",
-    "action_flag": 1,
-    "change_message": "Added."
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 14,
-  "fields": {
-    "action_time": "2016-05-28T16:57:30.813Z",
-    "user": 1,
-    "content_type": 13,
-    "object_id": "1",
-    "object_repr": "CMSC 11 A - Lec UPC",
-    "action_flag": 1,
-    "change_message": "Added."
-  }
-},
-{
-  "model": "admin.logentry",
   "pk": 15,
   "fields": {
-    "action_time": "2016-05-28T17:02:24.078Z",
+    "action_time": "2016-05-29T09:17:13.575Z",
     "user": 1,
-    "content_type": 17,
-    "object_id": "1",
-    "object_repr": "2013-50109 CMSC 11 A - Lec",
+    "content_type": 10,
+    "object_id": "2",
+    "object_repr": "PD6",
     "action_flag": 1,
     "change_message": "Added."
   }
@@ -1023,24 +1268,24 @@
   "model": "admin.logentry",
   "pk": 16,
   "fields": {
-    "action_time": "2016-05-28T17:36:43.467Z",
+    "action_time": "2016-05-29T09:17:44.189Z",
     "user": 1,
-    "content_type": 11,
-    "object_id": "1",
-    "object_repr": "CMSC 11",
+    "content_type": 10,
+    "object_id": "2",
+    "object_repr": "PD60",
     "action_flag": 2,
-    "change_message": "No fields changed."
+    "change_message": "Changed bracket."
   }
 },
 {
   "model": "admin.logentry",
   "pk": 17,
   "fields": {
-    "action_time": "2016-05-28T17:37:13.817Z",
+    "action_time": "2016-05-29T09:17:56.165Z",
     "user": 1,
-    "content_type": 11,
-    "object_id": "2",
-    "object_repr": "CMSC 21",
+    "content_type": 8,
+    "object_id": "1",
+    "object_repr": "BS Computer Science UPC",
     "action_flag": 1,
     "change_message": "Added."
   }
@@ -1049,13 +1294,169 @@
   "model": "admin.logentry",
   "pk": 18,
   "fields": {
-    "action_time": "2016-05-28T17:42:35.210Z",
+    "action_time": "2016-05-29T09:18:31.408Z",
     "user": 1,
     "content_type": 15,
     "object_id": "1",
-    "object_repr": "2013-50109",
-    "action_flag": 2,
-    "change_message": "Changed admitted_campus."
+    "object_repr": "DOST RA7687",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 19,
+  "fields": {
+    "action_time": "2016-05-29T09:19:04.190Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "4",
+    "object_repr": "JTPEDRO",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 20,
+  "fields": {
+    "action_time": "2016-05-29T09:19:32.394Z",
+    "user": 1,
+    "content_type": 16,
+    "object_id": "1",
+    "object_repr": "2016-50100",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 21,
+  "fields": {
+    "action_time": "2016-05-29T09:19:36.122Z",
+    "user": 1,
+    "content_type": 19,
+    "object_id": "1",
+    "object_repr": "2016-50100: DOST RA7687",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 22,
+  "fields": {
+    "action_time": "2016-05-29T09:22:42.333Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "2",
+    "object_repr": "2 sem 2015-2016",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 23,
+  "fields": {
+    "action_time": "2016-05-29T09:23:54.409Z",
+    "user": 1,
+    "content_type": 11,
+    "object_id": "3",
+    "object_repr": "CMSC 56",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 24,
+  "fields": {
+    "action_time": "2016-05-29T09:24:35.903Z",
+    "user": 1,
+    "content_type": 11,
+    "object_id": "4",
+    "object_repr": "CMSC 123",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 25,
+  "fields": {
+    "action_time": "2016-05-29T09:24:52.970Z",
+    "user": 1,
+    "content_type": 11,
+    "object_id": "5",
+    "object_repr": "CMSC 127",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 26,
+  "fields": {
+    "action_time": "2016-05-29T09:25:07.448Z",
+    "user": 1,
+    "content_type": 11,
+    "object_id": "6",
+    "object_repr": "CMSC 128",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 27,
+  "fields": {
+    "action_time": "2016-05-29T09:25:42.913Z",
+    "user": 1,
+    "content_type": 11,
+    "object_id": "7",
+    "object_repr": "CMSC 126",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 28,
+  "fields": {
+    "action_time": "2016-05-29T09:26:53.978Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "5",
+    "object_repr": "NMENEGO",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 29,
+  "fields": {
+    "action_time": "2016-05-29T09:26:55.680Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "3",
+    "object_repr": "Enego, Nico Martin",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 30,
+  "fields": {
+    "action_time": "2016-05-29T09:27:01.696Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "3",
+    "object_repr": "CMSC 56 A UPC",
+    "action_flag": 1,
+    "change_message": "Added."
   }
 }
 ]
