@@ -20,12 +20,13 @@
                 <td>{{ course.course.course }}</td>
                 <td>{{ course.course.course.name }}</td>
                 <td>{{ course.course.course.units }}</td>
-                <td>{{ course.grade }}</td>
+                <td>{{ course.get_grade_display }}</td>
             </tr>
         {% endfor %}
         <tr>
-            <td></td><td></td>
+            <td></td>
             <td>GWA: </td>
+            <td> {{ term.units_taken }} </td>
             <td>{{ term.gwa }}</td>
         </tr>
     </table>

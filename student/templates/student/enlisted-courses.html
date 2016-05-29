@@ -1,0 +1,33 @@
+{% extends 'student/base.html' %}
+
+{% block body %}
+
+<h2 align="center">Enlisted Courses</h2>
+<h5 align="center">{{ course_list.first.academic_year }}</h5>
+<table align="center">
+    <thead>
+        <td>Course</td>
+        <td>Block</td>
+        <td>Professor</td>
+        <td>Schedule</td>
+        <td>Action</td>
+    </thead>
+    <tbody>
+        {% for course in course_list %}
+        <tr>
+            <td> {{course.course.course }} </td>
+            <td> {{course.course.block}} </td>
+            <td> {{course.course.professor}} </td>
+            <td> {{ course.course.schedule }}  </td>
+            <td>
+                <form action="{% url 'student:remove-enlisted' course.pk %}" method="post" charset="UTF-8">
+                        {% csrf_token %}
+                        <button type="submit" name="pk" value="{{course.pk}}">Remove</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

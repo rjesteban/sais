@@ -69,6 +69,17 @@ class Student(models.Model):
             return 'Not yet available'
         return total/weights
 
+    @property
+    def total_units_taken(self):
+        grades = self.enrolled_courses.order_by('course')
+        weights = 0.0
+        for grade in grades:
+            if grade.grade <= 5.0:
+                weights += grade.course.course.units
+        if weights == 0.0:
+            return 'Not yet Available'
+        return weights
+
 
 class Term(models.Model):
     term = models.ForeignKey(AcademicYear)
@@ -87,10 +98,28 @@ class Term(models.Model):
             student__pk=stud.pk, course__academic_year=term)
         if len(courses) != 0:
             for course in courses:
-                total += course.grade * course.course.course.units
-                weights += course.course.course.units
+                if course.grade <= 5.0:
+                    total += course.grade * course.course.course.units
+                    weights += course.course.course.units
             return total/weights
         return 'Not yet available'
+
+    @property
+    def units_taken(self):
+        term = self.term
+        stud = self.student
+        weights = 0.0
+        courses = EnrolledCourse.objects.filter(
+            student__pk=stud.pk, course__academic_year=term)
+        if len(courses) != 0:
+            for course in courses:
+                if course.grade <= 5.0:
+                    weights += course.course.course.units
+            return weights
+        return 'Not yet available'
+
+    class Meta:
+        ordering = ['term']
 
 
 class Transaction(models.Model):
@@ -146,6 +175,11 @@ class EnrolledCourse(models.Model):
         return str(self.student) + ' ' +\
                str(self.course.course) + ' ' +\
                str(self.course.block)
+
+    def save(self, *args, **kwargs):
+        EnlistedCourse.objects.filter(course=self.course,
+                                      student=self.student).delete()
+        super(EnrolledCourse, self).save(*args, **kwargs)
 
 
 class StudentScholarship(models.Model):

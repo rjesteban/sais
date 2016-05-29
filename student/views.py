@@ -1,9 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import Http404, HttpResponse, HttpResponseRedirect
-# from django.core.urlresolvers import reverse
+from django.core.urlresolvers import reverse
 # from django.template import loader
-from django.views.generic import DetailView, ListView
-from .models import Student, Term, EnrolledCourse
+from django.views.generic import DetailView, ListView, CreateView, DeleteView
+from .models import Student, Term, EnrolledCourse, EnlistedCourse
 from sais.models import CourseOffered
 from sais.forms import LoginForm
 from sais.views import LoginView, LogoutView
@@ -41,39 +41,32 @@ class ProfileView(LoginRequiredMixin, ListView):
         return context
 
 
+# class EditProfileView(LoginRequiredMixin, DetailView):
+#    template_name = 'student/edit-profile.html'
+#    model = Student
+
+#    def get_context_data(self, **kwargs):
+#        context = super(ProfileView, self).get_context_data(**kwargs)
+#        context['student'] = self.request.user.student
+
+#        return context
+
+#    def post(self, request, *args, **kwargs):
+#        return
+
+
 class GradesView(LoginRequiredMixin, ListView):
     template_name = 'student/grades.html'
-    model = Student
+    model = Term
+    context_object_name = 'terms'
 
     def get_context_data(self, **kwargs):
         context = super(GradesView, self).get_context_data(**kwargs)
         student = self.request.user.student
         context['student'] = student
-        context['grades'] = student.enrolled_courses.order_by('course')
+        terms = Term.objects.filter(student=student).order_by('term')
+        context.update({'terms': terms})
         return context
-
-
-class ListCoursesView(LoginRequiredMixin, ListView):
-    template_name = 'student/courses.html'
-    model = CourseOffered
-    paginate_by = 10
-    context_object_name = 'course_list'
-
-    def get_context_data(self, **kwargs):
-        context = super(ListCoursesView, self).get_context_data(**kwargs)
-        student = self.request.user.student
-        context['student'] = student
-        courses = CourseOffered.objects.filter(
-            academic_year__open_for_enrollment=True)
-        context.update({'course_list': courses})
-        context['enlisted_courses'] = CourseOffered.objects.filter(
-            enlisted__student__pk=student.pk)
-        context['enrolled_courses'] = CourseOffered.objects.filter(
-            enrolled__student__pk=student.pk)
-        return context
-
-#    def get_all_courses(self):
-#        return CourseOffered
 
 
 class GradesTermView(LoginRequiredMixin, DetailView):
@@ -88,3 +81,52 @@ class GradesTermView(LoginRequiredMixin, DetailView):
             student__pk=context['student'].pk,
             course__academic_year=context['term'].term)
         return context
+
+
+class ListCoursesView(LoginRequiredMixin, ListView):
+    template_name = 'student/courses.html'
+    model = CourseOffered
+    paginate_by = 10
+    context_object_name = 'course_list'
+
+    def get_context_data(self, **kwargs):
+        context = super(ListCoursesView, self).get_context_data(**kwargs)
+        student = self.request.user.student
+        context['student'] = student
+        courses = CourseOffered.objects.filter(
+            academic_year__open_for_enrollment=True,
+            campus=student.admitted_campus)
+        context.update({'course_list': courses})
+        context['enlisted_courses'] = CourseOffered.objects.filter(
+            enlisted__student__pk=student.pk)
+        context['enrolled_courses'] = CourseOffered.objects.filter(
+            enrolled__student__pk=student.pk)
+        return context
+
+    def post(self, request, *args, **kwargs):
+        post = request.POST
+        icourse = CourseOffered.objects.get(pk=post['pk'])
+        istudent = request.user.student
+        EnlistedCourse.objects.create(course=icourse,
+                                      student=istudent)
+        return redirect(reverse('student:enlist'))
+
+
+class EnlistedCoursesView(LoginRequiredMixin, ListView):
+    template_name = 'student/enlisted-courses.html'
+    model = EnlistedCourse
+    paginate_by = 10
+    context_object_name = 'course_list'
+
+    def get_context_data(self, **kwargs):
+        context = super(EnlistedCoursesView, self).get_context_data(**kwargs)
+        context['student'] = self.request.user.student
+        enlisted = context['student'].enlisted_courses.all()
+        context.update({'course_list': enlisted})
+        return context
+
+    def post(self, request, *args, **kwargs):
+        post = request.POST
+        course = EnlistedCourse.objects.get(pk=post['pk'])
+        course.delete()
+        return redirect(reverse('student:enlisted-courses'))

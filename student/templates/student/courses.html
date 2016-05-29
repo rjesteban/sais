@@ -1,5 +1,6 @@
 {% extends 'student/base.html' %}
-
+{% load staticfiles %}
+{% load tags %}
 {% block body %}
 
 <h2 align="center">Courses Offered</h2>
@@ -10,21 +11,26 @@
         <td>Block</td>
         <td>Professor</td>
         <td>Schedule</td>
+        <td>Remaining/Slots</td>
         <td>Action</td>
     </thead>
     <tbody>
         {% for course in course_list %}
-        {% if not course in enrolled_courses %}
+        {% if not course in enrolled_courses and not course in enlisted_courses %}
         <tr>
             <td> {{course.course }} </td>
-            <td> {{course.block}} </td>
+            <td> {{course.block }} </td>
             <td> {{course.professor}} </td>
             <td> {{ course.schedule }}  </td>
+            <td> {{ course.slots|subt:course.enlisted.count }}/{{ course.slots }}</td>
             <td>
                 {% if course in enlisted_courses %}
                 Remove
                 {% else %}
-                Add
+                <form action="{% url "student:enlist" course.pk %}" method="post" charset="UTF-8">
+                        {% csrf_token %}
+                        <button type="submit" name="pk" value="{{course.pk}}">Enlist</button>
+                </form>
                 {% endif %}
             </td>
         </tr>
