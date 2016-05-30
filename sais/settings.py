@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'sais',
     'student',
+    'django_extensions',
 ]
 
 MIDDLEWARE_CLASSES = [
