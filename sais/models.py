@@ -109,8 +109,8 @@ class CourseSchedule(models.Model):
 
     def __str__(self):
         my_list = self.get_days
-        return str(self.start_time) + '-' + str(self.end_time) + ' '\
-            + '-'.join(my_list)
+        return '-'.join(my_list) + ' ' + str(self.start_time) + '-' +\
+            str(self.end_time)
 
 
 class CourseOffered(models.Model):

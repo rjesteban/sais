@@ -12,15 +12,15 @@
         <tr>
             <td>Course Code</td>
             <td>Course Description</td>
-            <td>Time</td>
+            <td>Days and Time</td>
             <td>Location</td>
             <td>Campus</td>
         </tr>
         {% for course in courses %}
             <tr>
-                <td>{{ course.course.course }}</td>
+                <td>{{ course.course.course }} {{ course.course.block }}</td>
                 <td>{{ course.course.course.name }}</td>
-                <td>{{ course.course.course.units }}</td>
+                <td>{{ course.course.schedule }}</td>
                 <td>{{ course.course.location }}</td>
                 <td>{{ course.course.campus }}</td>
             </tr>
