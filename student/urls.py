@@ -26,7 +26,8 @@ urlpatterns = [
     url(r'^(?P<pk>\d+)/sched$', views.ScheduleView.as_view(), name='schedule'),
     url(r'^(?P<pk>\d+)/sched-table$',
         views.ScheduleTabView.as_view(), name='sched-tab'),
-    # url(r'^(?P<pk>[0-9]+)/edit-profile$', views.EditProfileView.as_view(),
-    #     name='edit-profile'),
-    # url(r^/enroll/^$, views.EnrollClassView.as_view(),name='enlist')
+    url(r'^(?P<pk>\d+)/enl-schedule$', views.EnlistedScheduleView.as_view(),
+        name='enl-schedule'),
+    url(r'^(?P<pk>\d+)/enl-sched-tab$',
+        views.EnlistedSchedTabView.as_view(), name='enl-sched-tab'),
 ]

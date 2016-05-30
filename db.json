@@ -185,18 +185,18 @@
 },
 {
   "model": "sessions.session",
-  "pk": "aqugg8ns8hz0vsn86ed0t6y0hrlsck2l",
-  "fields": {
-    "session_data": "MDczNTlkMDMwZWJmNDgxZjQ4ZmU1ZTNmMzFmMzdmZTM4ZWRjZjg0MDp7Il9hdXRoX3VzZXJfaGFzaCI6IjIzOTc1YzM0NGQ2MjczZDgwYzhlYzMzMTcwYjBlM2QwMThiMWFmYmIiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiI0In0=",
-    "expire_date": "2016-06-12T14:29:27.922Z"
-  }
-},
-{
-  "model": "sessions.session",
   "pk": "oxlzehe2qi39x1mmt9i6jp25smq5a5rq",
   "fields": {
     "session_data": "MDczNTlkMDMwZWJmNDgxZjQ4ZmU1ZTNmMzFmMzdmZTM4ZWRjZjg0MDp7Il9hdXRoX3VzZXJfaGFzaCI6IjIzOTc1YzM0NGQ2MjczZDgwYzhlYzMzMTcwYjBlM2QwMThiMWFmYmIiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiI0In0=",
     "expire_date": "2016-06-12T11:46:35.805Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "tfdupcavmueqkhsytobabz1nzkbv99p1",
+  "fields": {
+    "session_data": "MDczNTlkMDMwZWJmNDgxZjQ4ZmU1ZTNmMzFmMzdmZTM4ZWRjZjg0MDp7Il9hdXRoX3VzZXJfaGFzaCI6IjIzOTc1YzM0NGQ2MjczZDgwYzhlYzMzMTcwYjBlM2QwMThiMWFmYmIiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiI0In0=",
+    "expire_date": "2016-06-13T00:02:32.360Z"
   }
 },
 {
@@ -411,6 +411,21 @@
   }
 },
 {
+  "model": "sais.courseoffered",
+  "pk": 5,
+  "fields": {
+    "course": 6,
+    "block": "A",
+    "academic_year": 1,
+    "schedule": 2,
+    "professor": 3,
+    "location": "AS 302",
+    "campus": 1,
+    "price": 1000,
+    "slots": 30
+  }
+},
+{
   "model": "student.scholarship",
   "pk": 1,
   "fields": {
@@ -424,6 +439,22 @@
   "fields": {
     "term": 1,
     "student": 1
+  }
+},
+{
+  "model": "student.term",
+  "pk": 2,
+  "fields": {
+    "term": 2,
+    "student": 1
+  }
+},
+{
+  "model": "student.enlistedcourse",
+  "pk": 12,
+  "fields": {
+    "course": 5,
+    "student": 2
   }
 },
 {
@@ -442,6 +473,24 @@
     "course": 4,
     "student": 1,
     "grade": 1.5
+  }
+},
+{
+  "model": "student.enrolledcourse",
+  "pk": 3,
+  "fields": {
+    "course": 2,
+    "student": 1,
+    "grade": 7.0
+  }
+},
+{
+  "model": "student.enrolledcourse",
+  "pk": 6,
+  "fields": {
+    "course": 5,
+    "student": 1,
+    "grade": 7.0
   }
 },
 {
@@ -1079,7 +1128,7 @@
   "pk": 4,
   "fields": {
     "password": "pbkdf2_sha256$24000$j8eN50SVf467$WZ2jOF2meCaC9rhuxa8H5uHMGVk4jzUeijcWwHbvkME=",
-    "last_login": "2016-05-29T14:29:27.911Z",
+    "last_login": "2016-05-30T00:02:32.345Z",
     "is_superuser": false,
     "username": "JTPEDRO",
     "first_name": "",
@@ -1124,6 +1173,24 @@
     "is_staff": false,
     "is_active": true,
     "date_joined": "2016-05-29T11:27:32.410Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 7,
+  "fields": {
+    "password": "pbkdf2_sha256$24000$jYwJoEsm7Nev$mlPiiXkTKiLFfYLgHRsQByQVQEPLVaxR2XcPMgfxl00=",
+    "last_login": "2016-05-30T00:00:42.495Z",
+    "is_superuser": false,
+    "username": "PTJUAN",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2016-05-29T19:45:54.872Z",
     "groups": [],
     "user_permissions": []
   }
@@ -1187,6 +1254,24 @@
     "sts_bracket": 2,
     "address": "Mandaue Cebu City",
     "birthday": "2000-05-29",
+    "gender": "Male"
+  }
+},
+{
+  "model": "student.student",
+  "pk": 2,
+  "fields": {
+    "student_id": 201344321,
+    "login_profile": 7,
+    "last_name": "Pedro",
+    "first_name": "Tests",
+    "middle_name": "Juan",
+    "admitted_campus": 1,
+    "up_mail": "ptjuan1@up.edu.ph",
+    "program": 1,
+    "sts_bracket": 2,
+    "address": "Mandaue Cebu City",
+    "birthday": "2001-05-30",
     "gender": "Male"
   }
 },
@@ -1799,6 +1884,201 @@
     "object_repr": "Term object",
     "action_flag": 1,
     "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 48,
+  "fields": {
+    "action_time": "2016-05-29T19:42:45.733Z",
+    "user": 1,
+    "content_type": 20,
+    "object_id": "3",
+    "object_repr": "2015-50100 Math 17 B",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 49,
+  "fields": {
+    "action_time": "2016-05-29T19:43:44.076Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "5",
+    "object_repr": "CMSC 128 A UPC",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 50,
+  "fields": {
+    "action_time": "2016-05-29T19:45:54.923Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "7",
+    "object_repr": "PTJUAN",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 51,
+  "fields": {
+    "action_time": "2016-05-29T19:46:28.380Z",
+    "user": 1,
+    "content_type": 16,
+    "object_id": "2",
+    "object_repr": "2013-44321",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 52,
+  "fields": {
+    "action_time": "2016-05-29T19:47:12.719Z",
+    "user": 1,
+    "content_type": 18,
+    "object_id": "7",
+    "object_repr": "2013-44321 CMSC 128 A",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 53,
+  "fields": {
+    "action_time": "2016-05-29T22:56:29.347Z",
+    "user": 1,
+    "content_type": 21,
+    "object_id": "2",
+    "object_repr": "Second Semester 2015-2016 : 2015-50100",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 54,
+  "fields": {
+    "action_time": "2016-05-29T23:17:18.613Z",
+    "user": 1,
+    "content_type": 20,
+    "object_id": "3",
+    "object_repr": "2015-50100 Math 17 B",
+    "action_flag": 2,
+    "change_message": "Changed grade."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 55,
+  "fields": {
+    "action_time": "2016-05-29T23:29:15.688Z",
+    "user": 1,
+    "content_type": 20,
+    "object_id": "3",
+    "object_repr": "2015-50100 Math 17 B",
+    "action_flag": 2,
+    "change_message": "Changed grade."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 56,
+  "fields": {
+    "action_time": "2016-05-29T23:29:38.919Z",
+    "user": 1,
+    "content_type": 20,
+    "object_id": "4",
+    "object_repr": "2015-50100 CMSC 128 A",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 57,
+  "fields": {
+    "action_time": "2016-05-29T23:30:45.736Z",
+    "user": 1,
+    "content_type": 20,
+    "object_id": "4",
+    "object_repr": "2015-50100 CMSC 128 A",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 58,
+  "fields": {
+    "action_time": "2016-05-29T23:33:27.649Z",
+    "user": 1,
+    "content_type": 20,
+    "object_id": "5",
+    "object_repr": "2013-44321 CMSC 128 A",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 59,
+  "fields": {
+    "action_time": "2016-05-29T23:34:28.165Z",
+    "user": 1,
+    "content_type": 20,
+    "object_id": "5",
+    "object_repr": "2013-44321 CMSC 128 A",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 60,
+  "fields": {
+    "action_time": "2016-05-29T23:35:20.412Z",
+    "user": 1,
+    "content_type": 20,
+    "object_id": "6",
+    "object_repr": "2015-50100 CMSC 128 A",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 61,
+  "fields": {
+    "action_time": "2016-05-29T23:36:36.733Z",
+    "user": 1,
+    "content_type": 20,
+    "object_id": "6",
+    "object_repr": "2015-50100 CMSC 128 A",
+    "action_flag": 2,
+    "change_message": "Changed grade."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 62,
+  "fields": {
+    "action_time": "2016-05-29T23:36:43.259Z",
+    "user": 1,
+    "content_type": 20,
+    "object_id": "6",
+    "object_repr": "2015-50100 CMSC 128 A",
+    "action_flag": 2,
+    "change_message": "Changed grade."
   }
 }
 ]

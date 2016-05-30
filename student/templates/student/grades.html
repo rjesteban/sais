@@ -17,6 +17,14 @@
         <td><a href="{% url 'student:term' term.pk %}">Grades</a></td>
     </tr>
     {% endfor %}
+    {% for term in term_list %}
+    <tr>
+        <td>{{ term }}</td>
+        <td>Grades Not yet Available</td>
+        <td><a href="{% url 'student:enl-schedule' term.pk %}">Schedule</a></td>
+        <td>NA</td>
+    </tr>
+    {% endfor %}
     <tr>
         <td>GWA</td>
         <td>{{ student.gwa }}</td>

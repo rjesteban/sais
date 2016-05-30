@@ -67,6 +67,8 @@ class GradesView(LoginRequiredMixin, ListView):
         context['student'] = student
         terms = Term.objects.filter(student=student).order_by('term')
         context.update({'terms': terms})
+        context['term_list'] = AcademicYear.objects.filter(
+            open_for_enrollment=True)
         return context
 
 
@@ -169,7 +171,21 @@ class EnlistedScheduleView(LoginRequiredMixin, DetailView):
     def get_context_data(self, **kwargs):
         context = super(EnlistedScheduleView, self).get_context_data(**kwargs)
         context['student'] = self.request.user.student
-        context['courses'] = EnrolledCourse.objects.filter(
+        context['courses'] = EnlistedCourse.objects.filter(
+            student__pk=context['student'].pk,
+            course__academic_year=context['term'])
+        return context
+
+
+class EnlistedSchedTabView(LoginRequiredMixin, DetailView):
+    template_name = 'student/schedule-enlisted-tab.html'
+    model = AcademicYear
+    context_object_name = 'term'
+
+    def get_context_data(self, **kwargs):
+        context = super(EnlistedSchedTabView, self).get_context_data(**kwargs)
+        context['student'] = self.request.user.student
+        context['courses'] = EnlistedCourse.objects.filter(
             student__pk=context['student'].pk,
             course__academic_year=context['term'])
         return context
