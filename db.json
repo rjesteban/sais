@@ -185,18 +185,18 @@
 },
 {
   "model": "sessions.session",
-  "pk": "oxlzehe2qi39x1mmt9i6jp25smq5a5rq",
+  "pk": "nje2d6ctznw5qg3qo605qfiywzujqg8a",
   "fields": {
-    "session_data": "MDczNTlkMDMwZWJmNDgxZjQ4ZmU1ZTNmMzFmMzdmZTM4ZWRjZjg0MDp7Il9hdXRoX3VzZXJfaGFzaCI6IjIzOTc1YzM0NGQ2MjczZDgwYzhlYzMzMTcwYjBlM2QwMThiMWFmYmIiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiI0In0=",
-    "expire_date": "2016-06-12T11:46:35.805Z"
+    "session_data": "YWRjNzc3YTIwOTBhY2JhYTFjMjE4MjhiZjI1MDcyYTdkYjk5NWFjYzp7Il9hdXRoX3VzZXJfaGFzaCI6ImYxZTE4MGUxOTMyNjYxNjI2NmIxYzhkMmVlNzcwZTViNzk0MDdjMDkiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiI3In0=",
+    "expire_date": "2016-06-13T03:05:01.888Z"
   }
 },
 {
   "model": "sessions.session",
-  "pk": "tfdupcavmueqkhsytobabz1nzkbv99p1",
+  "pk": "oxlzehe2qi39x1mmt9i6jp25smq5a5rq",
   "fields": {
     "session_data": "MDczNTlkMDMwZWJmNDgxZjQ4ZmU1ZTNmMzFmMzdmZTM4ZWRjZjg0MDp7Il9hdXRoX3VzZXJfaGFzaCI6IjIzOTc1YzM0NGQ2MjczZDgwYzhlYzMzMTcwYjBlM2QwMThiMWFmYmIiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiI0In0=",
-    "expire_date": "2016-06-13T00:02:32.360Z"
+    "expire_date": "2016-06-12T11:46:35.805Z"
   }
 },
 {
@@ -206,6 +206,15 @@
     "name": "University of the Philippines Cebu",
     "acronym": "UPC",
     "address": "Gorordo Ave., Lahug, Cebu City"
+  }
+},
+{
+  "model": "sais.campus",
+  "pk": 2,
+  "fields": {
+    "name": "University of the Philippines Diliman",
+    "acronym": "UPD",
+    "address": "Diliman, Quezon City, NCR, Philippines"
   }
 },
 {
@@ -426,6 +435,21 @@
   }
 },
 {
+  "model": "sais.courseoffered",
+  "pk": 6,
+  "fields": {
+    "course": 2,
+    "block": "C",
+    "academic_year": 1,
+    "schedule": 1,
+    "professor": 5,
+    "location": "Virata 203",
+    "campus": 2,
+    "price": 1000,
+    "slots": 30
+  }
+},
+{
   "model": "student.scholarship",
   "pk": 1,
   "fields": {
@@ -451,7 +475,15 @@
 },
 {
   "model": "student.enlistedcourse",
-  "pk": 12,
+  "pk": 14,
+  "fields": {
+    "course": 4,
+    "student": 2
+  }
+},
+{
+  "model": "student.enlistedcourse",
+  "pk": 15,
   "fields": {
     "course": 5,
     "student": 2
@@ -1128,7 +1160,7 @@
   "pk": 4,
   "fields": {
     "password": "pbkdf2_sha256$24000$j8eN50SVf467$WZ2jOF2meCaC9rhuxa8H5uHMGVk4jzUeijcWwHbvkME=",
-    "last_login": "2016-05-30T00:02:32.345Z",
+    "last_login": "2016-05-30T01:06:47.013Z",
     "is_superuser": false,
     "username": "JTPEDRO",
     "first_name": "",
@@ -1182,7 +1214,7 @@
   "pk": 7,
   "fields": {
     "password": "pbkdf2_sha256$24000$jYwJoEsm7Nev$mlPiiXkTKiLFfYLgHRsQByQVQEPLVaxR2XcPMgfxl00=",
-    "last_login": "2016-05-30T00:00:42.495Z",
+    "last_login": "2016-05-30T03:05:01.880Z",
     "is_superuser": false,
     "username": "PTJUAN",
     "first_name": "",
@@ -1191,6 +1223,24 @@
     "is_staff": false,
     "is_active": true,
     "date_joined": "2016-05-29T19:45:54.872Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 8,
+  "fields": {
+    "password": "pbkdf2_sha256$24000$H6jHbkMqtKGO$SXwtHxtvCSPrduSJjItRsbovmaykunKOXAbZS7YCaT0=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "JDCARO",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2016-05-30T03:00:35.816Z",
     "groups": [],
     "user_permissions": []
   }
@@ -1237,6 +1287,17 @@
     "middle_name": "Pelayo",
     "campus": 1,
     "login_profile": 6
+  }
+},
+{
+  "model": "sais.professor",
+  "pk": 5,
+  "fields": {
+    "last_name": "Caro",
+    "first_name": "Jaime",
+    "middle_name": "D",
+    "campus": 2,
+    "login_profile": 8
   }
 },
 {
@@ -2079,6 +2140,58 @@
     "object_repr": "2015-50100 CMSC 128 A",
     "action_flag": 2,
     "change_message": "Changed grade."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 63,
+  "fields": {
+    "action_time": "2016-05-30T03:00:26.092Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "2",
+    "object_repr": "University of the Philippines Diliman",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 64,
+  "fields": {
+    "action_time": "2016-05-30T03:00:35.857Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "8",
+    "object_repr": "JDCARO",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 65,
+  "fields": {
+    "action_time": "2016-05-30T03:00:37.626Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "5",
+    "object_repr": "Caro, Jaime",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 66,
+  "fields": {
+    "action_time": "2016-05-30T03:01:07.157Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "6",
+    "object_repr": "Math 17 C UPD",
+    "action_flag": 1,
+    "change_message": "Added."
   }
 }
 ]
