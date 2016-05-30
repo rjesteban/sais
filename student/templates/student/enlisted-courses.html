@@ -10,6 +10,7 @@
         <td>Block</td>
         <td>Professor</td>
         <td>Schedule</td>
+        <td>Location</td>
         <td>Action</td>
     </thead>
     <tbody>
@@ -19,6 +20,7 @@
             <td> {{course.course.block}} </td>
             <td> {{course.course.professor}} </td>
             <td> {{ course.course.schedule }}  </td>
+            <td> {{ course.course.location }}  </td>
             <td>
                 <form action="{% url 'student:remove-enlisted' course.pk %}" method="post" charset="UTF-8">
                         {% csrf_token %}
@@ -31,11 +33,13 @@
             <td></td>
             <td></td>
             <td>
-                <a href="{% url 'student:enl-sched-tab' course_list.first.course.academic_year.pk %}">
+                <a class="button" href="{% url 'student:enl-sched-tab' the_term.pk %}">
                     Tabular View
                 </a>
             </td>
-            <td></td>
+            <td>
+                <a class="button" href="{% url 'student:enlist' %}">Enlist Subjects</a>
+            </td>
             <td></td>
         </tr>
     </tbody>

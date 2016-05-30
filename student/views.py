@@ -150,6 +150,8 @@ class EnlistedCoursesView(LoginRequiredMixin, ListView):
         enlisted = context['student'].enlisted_courses.filter(
             course__academic_year__open_for_enrollment=True)
         context.update({'course_list': enlisted})
+        context['the_term'] = AcademicYear.objects.filter(
+            open_for_enrollment=True).first()
         return context
 
     def post(self, request, *args, **kwargs):
