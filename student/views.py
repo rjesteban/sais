@@ -4,7 +4,7 @@ from django.core.urlresolvers import reverse
 # from django.template import loader
 from django.views.generic import DetailView, ListView, CreateView, DeleteView
 from .models import Student, Term, EnrolledCourse, EnlistedCourse
-from sais.models import CourseOffered
+from sais.models import CourseOffered, AcademicYear
 from sais.forms import LoginForm
 from sais.views import LoginView, LogoutView
 from sais.mixins import LoginRequiredMixin
@@ -28,6 +28,7 @@ class IndexView(LoginRequiredMixin, ListView):
     def get_context_data(self, **kwargs):
         context = super(IndexView, self).get_context_data(**kwargs)
         context['student'] = self.request.user.student
+        context['term'] = AcademicYear.objects.filter(open_for_enrollment=True)
         return context
 
 
@@ -130,3 +131,45 @@ class EnlistedCoursesView(LoginRequiredMixin, ListView):
         course = EnlistedCourse.objects.get(pk=post['pk'])
         course.delete()
         return redirect(reverse('student:enlisted-courses'))
+
+
+class ScheduleView(LoginRequiredMixin, DetailView):
+    template_name = 'student/schedule.html'
+    model = Term
+    context_object_name = 'term'
+
+    def get_context_data(self, **kwargs):
+        context = super(ScheduleView, self).get_context_data(**kwargs)
+        context['student'] = self.request.user.student
+        context['courses'] = EnrolledCourse.objects.filter(
+            student__pk=context['student'].pk,
+            course__academic_year=context['term'].term)
+        return context
+
+
+class ScheduleTabView(LoginRequiredMixin, DetailView):
+    template_name = 'student/sched-table.html'
+    model = Term
+    context_object_name = 'term'
+
+    def get_context_data(self, **kwargs):
+        context = super(ScheduleTabView, self).get_context_data(**kwargs)
+        context['student'] = self.request.user.student
+        context['courses'] = EnrolledCourse.objects.filter(
+            student__pk=context['student'].pk,
+            course__academic_year=context['term'].term)
+        return context
+
+
+class EnlistedScheduleView(LoginRequiredMixin, DetailView):
+    template_name = 'student/schedule-enlisted.html'
+    model = AcademicYear
+    context_object_name = 'term'
+
+    def get_context_data(self, **kwargs):
+        context = super(EnlistedScheduleView, self).get_context_data(**kwargs)
+        context['student'] = self.request.user.student
+        context['courses'] = EnrolledCourse.objects.filter(
+            student__pk=context['student'].pk,
+            course__academic_year=context['term'])
+        return context

@@ -74,7 +74,7 @@ class AcademicYear(models.Model):
     open_for_enrollment = models.BooleanField(blank=False, default=False)
 
     def __str__(self):
-        return self.get_semester_display() + ' ' +\
+        return self.get_semester_display() + ' ' + ' AY ' +\
                    str(self.start_year) + '-' + \
                    str(self.end_year)
 

@@ -7,11 +7,14 @@
     <tr style="background-color:#888888">
         <td>Term</td>
         <td>GWA</td>
+        <td colspan="2">Actions</td>
     </tr>
     {% for term in student.terms.all %}
     <tr>
-        <td><a href="{% url 'student:term' term.pk %}">{{ term.term }}</a></td>
+        <td>{{ term.term }}</td>
         <td>{{ term.gwa }}</td>
+        <td><a href="{% url 'student:schedule' term.pk %}">Schedule</a></td>
+        <td><a href="{% url 'student:term' term.pk %}">Grades</a></td>
     </tr>
     {% endfor %}
     <tr>
