@@ -65,7 +65,7 @@ class Student(models.Model):
             if grade.grade <= 5.0:
                 total += (grade.grade*grade.course.course.units)
                 weights += grade.course.course.units
-        if weights == 0:
+        if weights == 0.0:
             return 'Not yet available'
         return total/weights
 
@@ -101,7 +101,8 @@ class Term(models.Model):
                 if course.grade <= 5.0:
                     total += course.grade * course.course.course.units
                     weights += course.course.course.units
-            return total/weights
+            if weights != 0.0:
+                return total/weights
         return 'Not yet available'
 
     @property
