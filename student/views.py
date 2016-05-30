@@ -96,9 +96,20 @@ class ListCoursesView(LoginRequiredMixin, ListView):
         context = super(ListCoursesView, self).get_context_data(**kwargs)
         student = self.request.user.student
         context['student'] = student
-        courses = CourseOffered.objects.filter(
-            academic_year__open_for_enrollment=True,
-            campus=student.admitted_campus)
+        course_queried = self.request.GET.get('course')
+        course_no_queried = self.request.GET.get('course_no')
+        see_all_clicked = self.request.GET.get('seeall')
+
+        course_query = str(course_queried)
+        course_no_query = str(course_no_queried)
+        courses = []
+        if course_query and course_no_query:
+            courses = self.get_courses_by_course_name_num(
+                student, course_query, course_no_query)
+
+        if see_all_clicked:
+            courses = self.get_all_courses(student)
+
         context.update({'course_list': courses})
         context['enlisted_courses'] = CourseOffered.objects.filter(
             enlisted__student__pk=student.pk)
@@ -114,6 +125,18 @@ class ListCoursesView(LoginRequiredMixin, ListView):
                                       student=istudent)
         return redirect(reverse('student:enlist'))
 
+    def get_courses_by_course_name_num(self, student, name_query, no_query):
+        return CourseOffered.objects.filter(
+            course__code_name__icontains=name_query,
+            course__course_no__icontains=no_query,
+            academic_year__open_for_enrollment=True,
+            campus=student.admitted_campus)
+
+    def get_all_courses(self, student):
+        return CourseOffered.objects.filter(
+            academic_year__open_for_enrollment=True,
+            campus=student.admitted_campus)
+
 
 class EnlistedCoursesView(LoginRequiredMixin, ListView):
     template_name = 'student/enlisted-courses.html'
@@ -124,7 +147,8 @@ class EnlistedCoursesView(LoginRequiredMixin, ListView):
     def get_context_data(self, **kwargs):
         context = super(EnlistedCoursesView, self).get_context_data(**kwargs)
         context['student'] = self.request.user.student
-        enlisted = context['student'].enlisted_courses.all()
+        enlisted = context['student'].enlisted_courses.filter(
+            course__academic_year__open_for_enrollment=True)
         context.update({'course_list': enlisted})
         return context
 

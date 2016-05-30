@@ -28,8 +28,12 @@
         <tr>
             <td></td>
             <td></td>
-            <td><a href="{% url 'student:enl-sched-tab' term.pk %}">Tabular View</a></td>
-            <td></td>
+            <td>
+                <a href="{% url 'student:enl-sched-tab' term.pk %}">Tabular View</a>
+            </td>
+            <td>
+                <a href="{% url 'student:enlisted-courses' %}">Manage Enlisted Subjects</a>
+            </td>
             <td></td>
         </tr>
     </table>

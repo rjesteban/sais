@@ -3,7 +3,7 @@
 {% block body %}
 
 <h2 align="center">Enlisted Courses</h2>
-<h5 align="center">{{ course_list.first.academic_year }}</h5>
+<h5 align="center">{{ course_list.first.course.academic_year }}</h5>
 <table align="center">
     <thead>
         <td>Course</td>
@@ -27,6 +27,17 @@
             </td>
         </tr>
         {% endfor %}
+        <tr>
+            <td></td>
+            <td></td>
+            <td>
+                <a href="{% url 'student:enl-sched-tab' course_list.first.course.academic_year.pk %}">
+                    Tabular View
+                </a>
+            </td>
+            <td></td>
+            <td></td>
+        </tr>
     </tbody>
 </table>
 
