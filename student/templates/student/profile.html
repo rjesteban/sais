@@ -1,33 +1,66 @@
-{% extends 'student/base.html' %}
-{% load staticfiles %}
-
-{% block body %}
-        <div class="container">
-            <div class="row">
-                <div class="one-whole column panel">
-                    <h1> Student Profile </h1>
-                    <div>Name: {{student.name}} </div>
-                    <div>Student No: {{student}} </div>
-                    <div>Program: {{student.program}} </div>
-                    <div>Year: {{student.year}} </div>
-                    <div>Campus: {{student.admitted_campus }}</div>
-                    <div>GWA: {{student.gwa }}</div>
-                    <div>STS Bracket: {{student.sts_bracket}}</div>
-                    <div> Scholarships: </div>
-                    {% if student.scholarships %}
-                    {% for scholarship in student.scholarships %}
-                    <div>{{scholarship.scholarship.name}}</div>
-                    {% endfor %}
-                    {% else %}
-                    <span> None</span> <br>
-                    {% endif %}
-                    <div>UP Mail: {{student.up_mail}}</div>
-                    <div>Address: {{student.address}}</div>
-                    <div>Birthday: {{student.birthday}} </div>
-                    <div>Gender: {{student.gender}}</div>
-
-                    <!--<a class="button button-primary" align="center" href="">Edit Profile</a>-->
-                </div>
-            </div>
+{% extends 'student/base.html' %} {% load staticfiles %} {% block body %}
+<div class="container">
+    <div class="row">
+        <div class="one-whole column panel">
+            <h1> Student Profile </h1>
+            <table align="center">
+                <tr>
+                    <td>Name:</td>
+                    <td>{{student.name}}</td>
+                </tr>
+                <tr>
+                    <td>Student No:</td>
+                    <td>{{student}}</td>
+                </tr>
+                <tr>
+                    <td>Program:</td>
+                    <td>{{student.program}}</td>
+                </tr>
+                <tr>
+                    <td>Year:</td>
+                    <td>{{student.year}}</td>
+                </tr>
+                <tr>
+                    <td>Campus:</td>
+                    <td>{{student.admitted_campus}}</td>
+                </tr>
+                <tr>
+                    <td>GWA:</td>
+                    <td>{{student.gwa}}</td>
+                </tr>
+                <tr>
+                    <td>STS Bracket:</td>
+                    <td>{{student.sts_bracket}}</td>
+                </tr>
+                <tr>
+                    <td>Scholarships:</td>
+                    <td>
+                        {% if student.scholarships %} {% for scholarship in student.scholarships %}
+                        <div>{{scholarship.scholarship.name}}</div>
+                        {% endfor %} {% else %}
+                        <span> None</span>
+                        <br> {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <td>UP Mail:</td>
+                    <td>{{student.up_mail}}</td>
+                </tr>
+                <tr>
+                    <td>Address:</td>
+                    <td>{{student.address}}</td>
+                </tr>
+                <tr>
+                    <td>Birthday:</td>
+                    <td>{{student.birthday}}</td>
+                </tr>
+                <tr>
+                    <td>Gender:</td>
+                    <td>{{student.gender}}</td>
+                </tr>
+            </table>
+            <!--<a class="button button-primary" align="center" href="">Edit Profile</a>-->
         </div>
+    </div>
+</div>
 {% endblock %}

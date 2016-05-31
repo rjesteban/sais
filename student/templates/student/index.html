@@ -4,13 +4,13 @@
 {% block body %}
         <div class="container">
             <div class="row">
-                <div class="one-whole column panel">
+                <div class="one-whole column panel" align="center">
                     <h1> Student Center </h1>
-                        <a class="button" href="{% url 'student:profile' %}">View Profile</a>
-                        <a class="button" href="{% url 'student:grades' %}">View My Schedule and Grades</a>
+                        <a class="button button-primary" href="{% url 'student:profile' %}">View Profile</a>
+                        <a class="button button-primary" href="{% url 'student:grades' %}">View My Schedule and Grades</a>
                         {% if term %}
-                        <a class="button" href="{% url 'student:enlist' %}">Enlist Subjects</a>
-                        <a class="button" href="{% url 'student:enlisted-courses' %}">View Enlisted Subjects</a>
+                        <a class="button button-primary" href="{% url 'student:enlist' %}">Enlist Subjects</a>
+                        <a class="button button-primary" href="{% url 'student:enlisted-courses' %}">View Enlisted Subjects</a>
                         {% else %}
                         <div>You are not allowed to enlist subjects at this time</div>
                         {% endif %}

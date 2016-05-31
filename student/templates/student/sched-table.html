@@ -9,30 +9,9 @@
     <br>
     
 
-    <table align="center">
-        <tr>
-            <td>Course Code</td>
-            <td>Course Description</td>
-            <td>Days and Time</td>
-            <td>Location</td>
-            <td>Campus</td>
-        </tr>
-        {% for course in courses %}
-            <tr>
-                <td>{{ course.course.course }} {{ course.course.block }}</td>
-                <td>{{ course.course.course.name }}</td>
-                <td>{{ course.course.schedule }}</td>
-                <td>{{ course.course.location }}</td>
-                <td>{{ course.course.campus }}</td>
-            </tr>
-        {% endfor %}
-        <tr>
-            <td></td>
-            <td></td>
-            <td><a href="{% url 'student:schedule' term.pk %}">Summary View</a></td>
-            <td></td>
-            <td></td>
-        </tr>
-    </table>
+    <div align="center">
+            <div><img src="{% static "sais/images/sched-table.png" %}"></div>
+            <a class="button button-primary" href="{% url 'student:schedule' term.pk %}">Summary View</a>
+    </div>
 
 {% endblock %}

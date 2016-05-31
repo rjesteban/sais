@@ -13,13 +13,13 @@
     <tr>
         <td>{{ term.term }}</td>
         <td>{{ term.gwa }}</td>
-        <td><a href="{% url 'student:schedule' term.pk %}">Schedule</a></td>
-        <td><a href="{% url 'student:term' term.pk %}">Grades</a></td>
+        <td><a class="button button-primary" href="{% url 'student:schedule' term.pk %}">Schedule</a></td>
+        <td><a class="button button-primary" href="{% url 'student:term' term.pk %}">Grades</a></td>
     </tr>
     {% endfor %}
     <tr>
-        <td>GWA</td>
-        <td>{{ student.gwa }}</td>
+        <td><b>GWA</b></td>
+        <td><b>{{ student.gwa }}</b></td>
     </tr>
 </table>
 {% endblock %}
